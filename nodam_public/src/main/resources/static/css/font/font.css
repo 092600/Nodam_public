@@ -1,0 +1,12 @@
+@font-face {font-family: 'SCD1'; src:url('/static/font/SCDream1.otf') format('truetype'); }
+@font-face {font-family: 'SCD2'; src:url('/static/font/SCDream2.otf') format('truetype'); }
+@font-face {font-family: 'SCD3'; src:url('/static/font/SCDream3.otf') format('truetype'); }
+@font-face {font-family: 'SCD4'; src:url('/static/font/SCDream4.otf') format('truetype'); }
+@font-face {font-family: 'SCD5'; src:url('/static/font/SCDream5.otf') format('truetype'); }
+@font-face {font-family: 'SCD6'; src:url('/static/font/SCDream6.otf') format('truetype'); }
+@font-face {font-family: 'SCD7'; src:url('/static/font/SCDream7.otf') format('truetype'); }
+@font-face {font-family: 'SCD8'; src:url('/static/font/SCDream8.otf') format('truetype'); }
+
+* {
+    font-family: SCD6;
+}

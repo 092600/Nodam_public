@@ -1,0 +1,52 @@
+/* -------------------map.html------------------------------- */
+/* .select_div{ height:35px;} */
+@font-face {font-family: 'SCD1'; src:url('../font/SCDream1.otf') format('truetype'); }
+@font-face {font-family: 'SCD2'; src:url('../font/SCDream2.otf') format('truetype'); }
+@font-face {font-family: 'SCD3'; src:url('../font/SCDream3.otf') format('truetype'); }
+@font-face {font-family: 'SCD4'; src:url('../font/SCDream4.otf') format('truetype'); }
+@font-face {font-family: 'SCD5'; src:url('../font/SCDream5.otf') format('truetype'); }
+@font-face {font-family: 'SCD6'; src:url('../font/SCDream6.otf') format('truetype'); }
+@font-face {font-family: 'SCD7'; src:url('../font/SCDream7.otf') format('truetype'); }
+@font-face {font-family: 'SCD8'; src:url('../font/SCDream8.otf') format('truetype'); }
+
+.but{ width : 35px; height : 35px; }
+
+/* 체크박스 */
+.godwjdrn{ 
+    z-index: 100;
+    position:absolute;
+    width : 130px;
+    border : 1px solid black;
+    border-radius: 5px;
+    height : 40px;
+    padding: .8em .5em;
+    top:50px; left:85%;
+}
+
+/* 제목 */
+#map_head_content{
+    position:absolute;
+    z-index: 150;
+    font-size:23px; font-family: SCD6;
+}
+/* 설명문(히트맵) */
+#map_content{ 
+    z-index:100;
+    position:absolute; top:100px; right:10px;
+}
+
+#mapdiv{
+    position: absolute;
+    top: 200px; width: 880px; left:250px;
+    border: 2px solid rgb(57, 57, 57);
+    padding: 10px;
+}
+#body_center{
+    position:absolute;
+    left: 270px; top:60px;
+    width:860px;
+    /* height: 120px;  */
+    height: 900px; 
+    border-top: 2px solid black;
+    /* background-color: red; */
+}

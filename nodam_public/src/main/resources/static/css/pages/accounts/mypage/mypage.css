@@ -1,0 +1,115 @@
+.contentDiv{
+    height : 862px;
+}
+
+.contentCenterDiv {
+    text-align: center;
+    min-width : 742px;
+    height :786px;
+    border: 3px solid rgba(240, 189, 65);;
+}
+
+.myinfoCenterDiv {
+    width : 60%;
+    height : 100%;
+}
+
+.myinfoHeadTextPTage {
+    margin-top: 35px;
+    font-size : 29px;
+    font-weight: bolder;
+}
+.myinfoDiv {
+    margin-top : 64px;
+    height : 502px;
+}
+.infoDiv {
+    display : flex;
+}
+
+.leftInfoDiv {
+    width : 38%;
+    height : 43px;
+    text-align: center;
+    padding-top : 16px;
+    /*margin-bottom: 45px;*/
+}
+
+.profileImgDiv {
+    height : 222px;
+}
+.profileImgDiv button{
+    width : 76px;
+    height: 22px;
+    border : 1px solid gray;
+    border-radius: 8%;
+    margin-top : 14px;
+}
+.userProfileImg {
+    margin-bottom: 14px;
+}
+.rightInfoDiv {
+    text-align: left;
+    width : 62%;
+    height : 43px;
+    padding-top : 16px;
+}
+
+.userProfileImg{
+    width : 110px;
+    height : 110px;
+}
+
+#userPasswordCertification {
+    width : 255px;
+    height : 32px;
+    font-size : 12px;
+}
+.certificationDiv {
+    min-width : 350px;
+}
+.changePasswordDiv {
+    min-width : 368px;
+    display : none;
+
+}
+#userPasswordCertificationButton {
+    width : 76px;
+    height: 39.5px;
+    margin-left  : 6px;
+}
+
+#password {
+    width : 255px;
+    height : 32px;
+    font-size : 12px;
+}
+
+#password2 {
+    width : 255px;
+    height : 32px;
+    font-size : 12px;
+}
+
+#changingUserPasswordButton {
+    width : 89px;
+    height: 39px;
+    margin-left  : 6px;
+}
+
+.certificationDiv {
+    margin-bottom: 19px;
+}
+
+.changePasswordDiv input {
+    margin-bottom: 10px;
+}
+
+.passwordUnderPTag {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.password2UnderPTag {
+    font-size: 12px;
+    margin-bottom: 4px;
+}

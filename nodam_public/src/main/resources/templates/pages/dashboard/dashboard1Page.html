@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 대쉬보드</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/dashboard/dashboard1N4.css}" >
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="dashboardMenuDiv">
+                    <div>
+                        <a href="/dashboard/1">대쉬보드 1</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/2">대쉬보드 2</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/3">대쉬보드 3</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/4">대쉬보드 4</a>
+                    </div>
+                </div>
+                <div class="dashboardDiv">
+                    <p class="dashboardTitle">국내 흡연 실태</p>
+                    <div class="dashboardDiv1">
+                        <p class="dashboarDiv1Title">그림 1. 남녀별 흡연율 통계</p>
+                        <p class="dashboarDiv1Text">◦ 한국 성인(만 20세 이상)의 흡연율은 2020년 현재 20.6%이며 성인 남성 중 흡연자 비율은 34.0%, 성인 여성 중 흡연자 비율은 6.6%로 큰 차이를 나타냄</p>
+
+                        <div class="dashboardDiv1ImgDiv">
+                            <img th:src="@{/images/dashboard/dashboard1_1.png}">
+                        </div>
+                    </div>
+
+                    <div class="dashboardDiv2">
+                        <p class="dashboarDiv1Title">그림 2. OECD 국가들의 남성 흡연율 통계</p>
+                        <p class="dashboarDiv1Text">◦ 2020년 OECD 남성(만 15세 이상) 기준, 한국의 남성 흡연율이 28.5%로 OECD 36개국 중 5위 차지함 (OECD 평균 20.3%)</p>
+
+                        <div class="dashboardDiv2ImgDiv">
+                            <img th:src="@{/images/dashboard/dashboard1_2.png}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

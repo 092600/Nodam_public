@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/defaultLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이</title>
+
+    <script th:src="@{/js/pages/main/mainPage.js}"></script>
+
+</head>
+
+<body>
+
+    <div layout:fragment="content">
+        <div class="indexContentDiv">
+            <div class="contentSlideDiv">
+                <div class="slidebox">
+                    <input type="radio" class="slideButton" name="slide" id="slide01" checked>
+                    <input type="radio" class="slideButton" name="slide" id="slide02">
+                    <input type="radio" class="slideButton" name="slide" id="slide03">
+                    <ul class="slideList">
+                        <li class="slideItem">
+                            <div>
+                                <label for="slide03" class="left"></label>
+                                <label for="slide02" class="right"></label>
+                                <a><img th:src="@{/images/slide_pic01.png}"></a>
+                            </div>
+                        </li>
+                        <li class="slideItem">
+                            <div>
+                                <label for="slide01" class="left"></label>
+                                <label for="slide03" class="right"></label>
+                                <a><img th:src="@{/images/slide_pic02.png}"></a>
+                            </div>
+                        </li>
+                        <li class="slideItem">
+                            <div>
+                                <label for="slide02" class="left"></label>
+                                <label for="slide01" class="right"></label>
+                                <a><img th:src="@{/images/slide_pic03.png}"></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contentDiv">
+                
+                <div class="contentLeftDiv">
+                    <div class="userInfoDiv">
+                        <div class="userIconNInfo">
+                            <img class="userImgNL" th:if="${session.user} == null" th:src="@{/images/right_img_04.JPG}">
+                            <div class="userImgDiv" >
+                                <img class="userImgL" th:if="${session.user} != null" th:src="@{/images/user.JPG}">
+                            </div>
+                            <div class="userNameDiv">
+                                <span><a th:if="${session.user} != null" th:text="${session.user.getName()}"></a></span>
+                            </div>
+                        </div>
+                        <div class="infoButtonDiv">
+                            <div>
+                                <input type="hidden" th:if="${session.user} != null" th:value="${session.user.getEmail()}" id="sessionUserEmail">
+                                <a th:if="${session.user} != null and ${session.user.getNoSmokeStartDate()} == 'null'" onclick="noSmoking()" >금연하기</a>
+                                <a th:if="${session.user} != null and ${session.user.getNoSmokeStartDate()} != 'null'"  onclick="noSmokingStop()">금연 끝내기</a>
+                                <a th:if="${session.user} == null"></a>
+                            </div>
+                            <div>
+
+                                <a th:if="${session.user} != null" th:href="@{/accounts/myinfo}">내 정보</a>
+                                <a th:if="${session.user} == null" ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="LeftSideImg">
+                        <img th:src="@{/images/right_img_03.JPG}">
+                    </div>
+                </div>
+                <div class="contentCenterDiv">
+                    <div class="CenterDiv1">
+                        <div class="quitSomkeThisyear">
+                            <div class="quitSomkeThisyearImgDiv">
+                                <img th:src="@{/images/smoking_people.png}" alt="">
+                            </div>
+                            <div class="quitSomkeThisyearTextDiv">
+                                <p class="centerDiv1HeadText">올해 금연 시도자</p>
+                                <p class="centerDiv1TailText"><span th:text="|${amountOfQuitTrySmokePeople} 명|"></span></p>
+                            </div>
+                        </div>
+                        <div class="quitSmokeSuccess">
+                            <div class="quitSmokeSuccessyearImgDiv">
+                                <img th:src="@{/images/smoking_people.png}" alt="">
+                            </div>
+                            <div class="quitSmokeSuccessyearTextDiv">
+                                <p class="centerDiv1HeadText">올해 금연 성공자</p>
+                                <p class="centerDiv1TailText" ><span th:text="|${amountOfQuitSuccessSmokePeople} 명|"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="CenterDiv2">
+                        <div class="userBoardTextDiv">
+                            <div class="userBoardInnerDiv1"><img class="TextDivImg" th:src="@{/images/community.png}" alt=""><span></span><span>노담노담</span></div>
+                            <div class="userBoardInnerDiv2"><a th:href="@{/community?page=1&recordSize=10}">전체보기</a></div>
+                        </div>
+                        <div class="userBoardDiv">
+                            <div class="popularPostDiv">
+                                <div class="popularPostHeadDiv">
+                                    <p>인기 게시판</p>
+                                </div>
+                                <div class="popularPostContentDiv">
+                                    <!-- <table>
+                                        <tr th:each="post : ${viewCntTop6Posts}">
+                                            <td class="postTitleTD" >
+                                                <a th:text="${post.postTitle}"
+                                                   th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
+                                            <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
+                                            <td class="postViewCntTD" th:text="${post.viewCnt}"></td>
+                                        </tr>
+                                        <tr th:each="num : ${#numbers.sequence(0, 6 - viewCntTop6Posts.size())}">
+                                            <td class="postTitleTD"></td>
+                                            <td class="postAuthorTD"></td>
+                                            <td class="postViewCntTD"></td>
+                                        </tr>
+                                    </table> -->
+                                </div>
+                            </div>
+                            <div class="latestPostDiv">
+                                <div class="latestPostHeadDiv">
+                                    <p>최신 게시판</p>
+                                </div>
+                                <div class="latestPostContentDiv">
+                                    <!-- <table>
+                                        <tr th:each="post : ${createDateTop6Posts}">
+                                            <td class="postTitleTD">
+                                                <a th:text="${post.postTitle}"
+                                                   th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
+                                            <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
+                                            <td class="postViewCntTD" th:text="${post.viewCnt}"></td>
+                                        <tr th:each="num : ${#numbers.sequence(0, 6 - createDateTop6Posts.size())}">
+                                            <td class="postTitleTD"></td>
+                                            <td class="postAuthorTD"></td>
+                                            <td class="postViewCntTD"></td>
+                                        </tr>
+                                    </table> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="CenterDiv3">
+                        <div class="clinicTextDiv">
+                            <div class="clinicInnerDiv1"><img class="TextDivImg" th:src="@{/images/health.png}" alt=""><span>금연 클리닉 보건소 찾기</span></div>
+                            <div class="clinicInnerDiv2"><a href="/clinic?page=1&region=서울">전체보기</a></div>
+                        </div>
+                        <div class="clinicDiv">
+                            <div class="mainClinicLeftDiv">
+                                <ul class="mainClinicLeftUL">
+                                    <div class="서울" onclick="regionChange(this)"><li>서울</li></div>
+                                    <div class="부산" onclick="regionChange(this)"><li>부산</li></div>
+                                    <div class="대구" onclick="regionChange(this)"><li>대구</li></div>
+                                    <div class="인천" onclick="regionChange(this)"><li>인천</li></div>
+                                    <div class="광주" onclick="regionChange(this)"><li>광주</li></div>
+                                    <div class="대전" onclick="regionChange(this)"><li>대전</li></div>
+                                    <div class="울산" onclick="regionChange(this)"><li>울산</li></div>
+                                    <div class="세종" onclick="regionChange(this)"><li>세종</li></div>
+                                    <div class="경기" onclick="regionChange(this)"><li>경기</li></div>
+                                    <div class="강원" onclick="regionChange(this)"><li>강원</li></div>
+                                    <div class="충북" onclick="regionChange(this)"><li>충북</li></div>
+                                    <div class="충남" onclick="regionChange(this)"><li>충남</li></div>
+                                    <div class="전북" onclick="regionChange(this)"><li>전북</li></div>
+                                    <div class="전남" onclick="regionChange(this)"><li>전남</li></div>
+                                    <div class="경북" onclick="regionChange(this)"><li>경북</li></div>
+                                    <div class="경남" onclick="regionChange(this)"><li>경남</li></div>
+                                    <div class="제주" onclick="regionChange(this)"><li>제주</li></div>
+                                </ul>
+                            </div>
+                            <div class="mainClinicRightDiv">
+                                <table class="mainClinicTable" id="mainClinicTable">
+                                    <tbody class="clinicTableBody" id="clinicTableBody" th:rows="50">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="contentRightDiv">
+                    <div class="topBannerDiv">
+                        <img th:src="@{/images/right_img_01.JPG}">
+                    </div>
+
+                    <div class="bottomBannerDiv">
+                        <img th:src="@{/images/right_img_02.JPG}">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

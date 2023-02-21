@@ -1,0 +1,586 @@
+/*@media screen and (min-width: 833px) {*/
+*{
+    margin : 0px auto;
+}
+
+#mainMenuButton {
+    color : rgba(240, 189, 65);;
+}
+
+
+
+
+img {
+    -webkit-user-drag: none;
+}
+
+.indexContentDiv{
+    width : 100%;
+    height : 1430px;
+    display: inline;
+}
+
+.contentSlideDiv{
+    width : 100%;
+    height : 320px;
+
+    overflow: hidden;
+
+    border-bottom: 0.5px solid rgb(197, 197, 197);
+
+}
+
+/* slide Start */
+ul, li {
+    list-style: none;
+    padding-left: 0px;
+}
+
+[id="slide01"]:checked ~ .slideList .slideItem {transform:translateX(0); animation: slide01 20s infinite;}
+[id="slide02"]:checked ~ .slideList .slideItem {transform:translateX(-100%);animation: slide02 20s infinite;}
+[id="slide03"]:checked ~ .slideList .slideItem {transform:translateX(-200%);animation: slide03 20s infinite;}
+
+@keyframes slide01 {
+    0% {left : 0%;}
+    31% {left : 0%;}
+    33.33% {left : -100%;}
+    64% {left : -100%;}
+    66.63% {left : -200%;}
+    98% {left : -200%;}
+    100% {left : 0%;}
+}
+
+@keyframes slide02 {
+    0% {left : 0%;}
+    31% {left : 0%;}
+    33.33% {left : -100%;}
+    64% {left : -100%;}
+    66.63% {left : 100%;}
+    98% {left : 100%;}
+    100% {left : 0%;}
+}
+
+@keyframes slide03 {
+    0% {left : 0%;}
+    31% {left : 0%;}
+    33.33% {left : 200%;}
+    64% {left : 200%;}
+    66.63% {left : 100%;}
+    98% {left : 100%;}
+    100% {left : 0%;}
+}
+
+#slide {
+    display : none;
+    /*visibility: hidden;*/
+}
+.slideButton {
+    display : none;
+    visibility: hidden;
+}
+.slidebox {
+    width : 100%;
+    height : 320px;
+}
+.slidebox img {
+    width : 100%;
+    height: 320px;
+}
+.slideList{
+    width : 100%;
+    height : 100%;
+}
+.slideList img{
+    width : 100%;
+    height : 320px;
+}
+.slidebox .slideList {
+    white-space: nowrap;
+    overflow: hidden;
+    font-size : 0;
+}
+
+.slidebox .slideItem {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width:100%;
+    transition: all .35s;
+}
+
+.slidebox .slideItem label {
+    position: absolute;
+    z-index: 1;
+    top : 50%;
+    transform:translateY(-50%);
+    padding:20px;
+    border-radius: 50%;
+    cursor : pointer;
+}
+
+label.left {
+    left:20px;
+    background-color: rgba(240, 189, 65);
+    background-image:url('../images/leftArrow.png');
+    background-position: center center;
+    background-size : 50%;
+    background-repeat: no-repeat;
+}
+
+label.right {
+    right:20px;
+    background-color: rgba(240, 189, 65);
+    background-image:url('../images/rightArrow.png');
+    background-position: center center;
+    background-size : 50%;
+    background-repeat: no-repeat;
+}
+
+/* slide End */
+
+.carousel-item img{
+    height: 300px;
+}
+
+.contentDiv{
+    display: flex;
+    width : 100%;
+    height : 1300px;
+}
+.contentLeftDiv{
+    height : 100%;
+    width : 515px;
+    min-width : 235px;
+}
+
+.userInfoDiv{
+    margin-top : 30px;
+    width : 80%;
+    height : 320px;
+
+    border-radius: 5%;
+    background-color: rgba(240, 189, 65);
+    border : 1px solid black;
+}
+
+.userIconNInfo{
+    width : 100%;
+    height : 260px;
+}
+
+.userImgDiv{
+    width : 100%;
+    height : 215px;
+    vertical-align: middle;
+
+    margin-bottom: 7px;
+    border-bottom: 1px solid black;
+}
+
+.userImgDiv img{
+    position: relative;
+    top:15px;
+    display : flex;
+
+    width :75%;
+    height : 75%;
+
+    border-radius: 5%;
+
+}
+.userImgNL {
+    width : 100%;
+    height : 320px;
+}
+
+.userNameDiv{
+    text-align: center;
+    align-items: center;
+    font-size: 19px;
+    height : 24px;
+    margin-top : 18px;
+
+}
+
+.userNameDiv a:hover{
+    color : black;
+}
+
+
+
+.infoButtonDiv{
+    width : 100%;
+    height : 42px;
+    float:left;
+    display: flex;
+    vertical-align: middle;
+    margin-top : 8px;
+}
+.infoButtonDiv a:hover {
+    color : darkred;
+}
+.infoButtonDiv div{
+    width : 50%;
+    height: 100%;
+
+    display: flex;
+    padding-top: 15px;
+}
+
+.LeftSideImg {
+    width :80%;
+    height : 325px;
+
+    margin-top : 275px;
+}
+
+.LeftSideImg img{
+    width : 95%;
+    height : 100%;
+}
+
+.contentCenterDiv{
+    height : 100%;
+    width : 100%;
+    min-width: 865px;
+    display: inline-block;
+
+    border-right: 0.5px solid lightgray;
+    border-left: 0.5px solid lightgray;
+}
+
+.CenterDiv1 {
+    width : 90%;
+    height : 180px;
+
+    border-radius: 20px;
+    border : 3px solid black;
+    margin-top: 45px;
+
+    display: flex;
+    text-align: center;
+}
+
+.CenterDiv1 img{
+    margin-top : 18px;
+    width : 80%;
+    height: 80%;;
+
+    border-radius: 5px;
+}
+
+.quitSomkeThisyear{
+    width : 50%;
+    height : 100%;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    display: flex;
+}
+.quitSomkeThisyearImgDiv{
+    width : 50%;
+    height : 100%;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.quitSomkeThisyearTextDiv{
+    width : 50%;
+    height : 100%;
+
+}
+.quitSmokeSuccess{
+    width : 50%;
+    height : 100%;
+
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    display: flex;
+}
+
+.quitSmokeSuccessyearImgDiv{
+    width : 50%;
+    height : 100%;
+}
+.quitSmokeSuccessyearTextDiv{
+    width : 50%;
+    height : 100%;
+
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.centerDiv1HeadText{
+    font-size : 23px;
+    font-weight: bolder;
+
+    margin-top: 58px;
+    line-height: 36px;
+}
+
+.centerDiv1TailText{
+    font-size : 20px;
+}
+.CenterDiv2 {
+    width : 90%;
+    height : 315px;
+
+    margin-top: 95px;
+
+    border : 1px solid black;
+    border-radius: 5px;
+}
+
+.userBoardTextDiv {
+    width : 100%;
+    height : 17%;
+
+    display : flex;
+}
+.userBoardTextDiv div{
+    margin-top : 17px;
+}
+
+.userBoardInnerDiv1 {
+    display : flex;
+    position: absolute;
+    margin-left : 10px;
+    font-size : 19Px;
+}
+
+.userBoardInnerDiv2 {
+    position: relative;
+
+    top : 2px;
+    margin-right : 20px;
+    font-size : 16px;
+}
+.userBoardDiv {
+    width : 100%;
+    height : 83%;
+    display: flex;
+}
+
+.popularPostDiv {
+    width : 50%;
+    height: 100%;
+}
+
+.popularPostHeadDiv {
+    vertical-align: baseline;
+    width : 100%;
+    height: 15%;
+    background-color: rgba(240, 189, 65);
+    border: 1px solid black;
+    border-left : none;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+}
+.popularPostHeadDiv p {
+    margin-top: 8px;
+}
+.popularPostContentDiv {
+    width : 100%;
+    height: 85%;
+    border-right: 1px solid black;
+}
+
+.latestPostDiv {
+    width : 50%;
+    height: 100%;
+}
+
+.latestPostHeadDiv {
+    width : 99.8%;
+    height: 15%;
+
+    background-color: rgba(240, 189, 65);
+
+    border: 1px solid black;
+    border-right : hidden;
+
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+}
+.latestPostHeadDiv p {
+    margin-top: 8px;
+}
+.latestPostContentDiv {
+    width : 100%;
+    height: 85%;
+}
+table{
+    width : 100%;
+    height: 100%;
+}
+.postTitleTD{
+    width : 70%;
+    height: 32.8px;
+    padding-left : 8px;
+}
+.postAuthorTD {
+    width : 20%;
+    height: 32.8px;
+    text-align: center;
+}
+.postViewCntTD {
+    width : 10%;
+    height: 32.8px;
+    text-align: center;
+}
+
+
+.TextDivImg{
+    margin-top: -9px;
+    width : 38px;
+    height : 38px;
+    margin-right : 6px;
+}
+.CenterDiv3 {
+    width : 90%;
+    height : 365px;
+
+    margin-top: 120px;
+
+    border : 2px solid black;
+    border-radius: 5px;
+}
+
+
+.clinicTextDiv {
+    width : 100%;
+    height : 17%;
+    display : flex;
+    border-bottom: 2px solid black;
+}
+
+
+.clinicInnerDiv1 {
+    display : flex;
+    position: absolute;
+    margin-left : 10px;
+    font-size : 19Px;
+}
+
+.clinicInnerDiv2 {
+    position: relative;
+
+    top : 2px;
+    margin-right : 20px;
+    font-size : 16px;
+}
+
+.clinicTextDiv div{
+    margin-top : 17px;
+}
+
+.clinicDiv {
+    width : 100%;
+    height : 83%;
+    display : flex;
+}
+
+
+.mainClinicLeftDiv {
+    width : 25%;
+    height: 100%;
+    display : flex;
+    overflow: auto;
+}
+
+.mainClinicLeftUL {
+    width: 100%;
+    list-style: none;
+    font-size : 18px;
+    display :inline;
+    margin : auto;
+    padding-left : 0px;
+}
+.mainClinicLeftUL>div{
+    padding-top : 4px;
+    height : 38px;
+
+    border-bottom : 1px solid black;
+    border-right : 1px solid black;
+
+    display: flex;
+}
+.mainClinicLeftUL li {
+    margin-top : 6px;
+}
+
+.mainClinicRightDiv {
+    width : 100%;
+    height: 100%;
+
+    overflow: auto;
+}
+
+.contentRightDiv{
+    height : 100%;
+    width : 445px;
+    min-width : 225px;
+}
+.mainClinicTable{
+    width : 96%;
+}
+
+.organization {
+    text-align: left;
+    width : 25%;
+    min-width : 152px;
+    height : 36px;
+    font-weight: bold;
+}
+.address {
+    font-size: 14px;
+    width : 60%;
+    min-width : 30%;
+    height : 36px;
+}
+.number {
+    font-size: 14px;
+    width : 15%;
+    min-width : 6%;
+    height : 36px;
+}
+
+.topBannerDiv{
+    width : 95%;
+    height : 345px;
+
+    padding-top: 25px;
+}
+
+.topBannerDiv img{
+    width : 93%;
+    height: 100%;
+
+    margin-left: 9px;
+}
+
+.bottomBannerDiv{
+    width : 95%;
+    height : 345px;
+
+    padding-top: 115px;
+}
+
+.bottomBannerDiv img{
+    width : 93%;
+    height: 100%;
+
+    margin-left: 9px;
+}
+
+.userLevelImg {
+    width : 20px;
+    height : 20px;
+    margin-right : 6px;
+}
+/*}*/

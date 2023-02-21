@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 마이페이지</title>
+
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+    <link rel="stylesheet" th:href="@{/css/pages/accounts/mypage/mypage.css}" >
+
+    <script th:src="@{/js/pages/main/mainPage.js}"></script>
+    <script th:src="@{/js/pages/accounts/mypage/mypage.js}"></script>
+    
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="myinfoCenterDiv">
+                    <p class="myinfoHeadTextPTage">마이페이지</p>
+                    <div class="myinfoDiv">
+                        <div class="infoDiv">
+                            <div class="leftInfoDiv profileImgDiv"><span>프로필사진</span></div>
+                            <div class="rightInfoDiv profileImgDiv">
+                                <img class="userProfileImg" id="userProfileImg" th:src="@{/images/user.JPG}">
+                                <p><input id="userProfileImgInput" type="file" onchange="changeUserProfileImg(this)"></p>
+                                <p><button onclick="deleteUserProfileImg()">이미지 삭제</button></p>
+                            </div>
+                        </div>
+                        <div class="infoDiv">
+                            <div class="leftInfoDiv"><span>이름</span></div>
+                            <div class="rightInfoDiv"><span id="userName" th:text="${session.user.getName()}"></span></div>
+                        </div>
+                        <div class="infoDiv">
+                            <div class="leftInfoDiv"><span>이메일</span></div>
+                            <div class="rightInfoDiv"><span id="userEmail" th:text="${session.user.getEmail()}"></span></div>
+                        </div>
+                        <div class="infoDiv">
+                            <div class="leftInfoDiv"><span>비밀번호</span></div>
+                            <div class="rightInfoDiv">
+                                <form class="certificationForm" id="certificationForm">
+                                    <div class="certificationDiv">
+                                        <p>
+                                            <input id="userPasswordCertification" type="password" placeholder="비밀번호변경을 위해 기존의 비밀번호를 입력해주세요." autocomplete="off">
+                                            <button type="button" id="userPasswordCertificationButton" onclick="certificationPassword()">인증하기</button>
+                                        </p>
+                                        <p id="userPasswordCertificationUnderPTag"></p>
+                                    </div>
+                                </form>
+                                <form class="changePasswordForm">
+                                    <div class="changePasswordDiv" id="changePasswordDiv">
+
+                                        <p><input id="password" type="password" placeholder="변경할 비밀번호를 입력해주세요." autocomplete="off"></p>
+                                        <p class="passwordUnderPTag" id="passwordUnderPTag"></p>
+                                        <p>
+                                            <input id="password2" type="password" placeholder="변경할 비밀번호를 다시 입력해주세요." autocomplete="off">
+                                            <button type="button" id="changingUserPasswordButton" onclick="changingPassword()" disabled>비밀번호 변경</button>
+                                        </p>
+                                        <p class="password2UnderPTag" id="password2UnderPTag"></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 회원가입</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/accounts/signup/signup.css}" >
+
+    <script th:src="@{/js/pages/main/mainPage.js}"></script>
+    <script th:src="@{/js/pages/accounts/signup/signup.js}"></script>
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="signUpDiv">
+                    <p class="signUpHeadPTag">회원가입</p>
+                    <div class="userInputInfoOutterDiv">
+                        <form id="userSignUpForm" >
+                            <div class="userInputInfoInnerDiv">
+                                <p class="inputLabel">이름(필수)</p>
+                                <input  id="name" placeholder="이름">
+                                <p class="underPTag" id="nameUnderPTag"></p>
+                            </div>
+                            <div class="userInputInfoInnerGenderDiv">
+                                <p class="inputLabel" >성별(필수)</p>
+                                <div>
+                                    <input class="gender" id="gender" type="hidden"  value="">
+                                    <button type="button" class="genderButton" onclick="genderButtonClick(this)" id="M">Male</button>
+                                    <button type="button" class="genderButton" onclick="genderButtonClick(this)" id="F">Female</button>
+                                </div>
+                            </div>
+                            <div class="userInputInfoInnerDiv">
+                                <p class="inputLabel" >이메일(필수)</p>
+                                <input type="email" id="email" name="email" placeholder="이메일">
+                                <p class="underPTag" id="emailUnderPTag"></p>
+                            </div>
+                            <div class="userInputInfoInnerDiv">
+                                <p class="inputLabel">비밀번호(필수)</p>
+                                <input type="password" id="password" name="password" placeholder="비밀번호" autocomplete="off">
+                                <p class="underPTag" id="passwordUnderPTag"></p>
+                            </div>
+                            <div class="userInputInfoInnerDiv">
+                                <p class="inputLabel">비밀번호 재확인(필수)</p>
+                                <input type="password" id="password2" name="password2" placeholder="비밀번호 재확안" autocomplete="off">
+                                <p class="underPTag" id="password2UnderPTag"></p>
+                            </div>
+                            <div class="userInputInfoInnerDiv">
+                                <p class="inputLabel">생일(선택)</p>
+                                <input type="date" id="birthday">
+                            </div>
+                        </form>
+                        <div class="userInputInfoInnerDiv">
+                            <button type="button" class="signUpSubmitButton" onclick="submitUserInfo()">회원가입 하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

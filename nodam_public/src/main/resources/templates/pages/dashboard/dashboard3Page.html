@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 대쉬보드</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/dashboard/dashboard2N3.css}" >
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="dashboardMenuDiv">
+                    <div>
+                        <a href="/dashboard/1">대쉬보드 1</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/2">대쉬보드 2</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/3">대쉬보드 3</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/4">대쉬보드 4</a>
+                    </div>
+                </div>
+                <div class="dashboardDiv">
+                    <p class="dashboardTitle">국내 흡연 실태</p>
+                    <div class="dashoardOuterDiv">
+                        <div class="dashboardDiv1">
+                            <p class="dashboarDivTitle">그림 1. 서울시 간접흡연 경험인구 통계</p>
+                            <p class="dashboarDivText">◦ 한국보건사회연구원에서 19~49세 성인 남녀 5,280명을 대상으로 조사한 결과,성인 응답자 10명 중 9명은 길거리 간접흡연으로 인한 피해 경험이 있음</p>
+                            <div class="dashboardDiv1ImgDiv">
+                                <img th:src="@{/images/dashboard/dashboard4_1.png}">
+                            </div>
+                        </div>
+
+                        <div class="dashboardDiv2">
+                            <p class="dashboarDivTitle">그림 2. 서울시 직장/가정실내 간접흡연 노출률 통계</p>
+                            <p class="dashboarDivText">◦ 현재 비흡연자 중 ‘강북구’에서 직장 실내 간접흡연 노출률(5.3%)과 가정 실내 간접흡연 노출률(15%)이 가장 높음</p>
+                            <div class="dashboardDiv2ImgDiv">
+                                <img th:src="@{/images/dashboard/dashboard4_2.png}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

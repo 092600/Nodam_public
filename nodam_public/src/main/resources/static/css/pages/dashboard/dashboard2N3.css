@@ -1,0 +1,109 @@
+#dashboardMenuButton {
+    color : rgba(240, 189, 65);
+}
+.contentDiv {
+    min-width : 1315px;
+}
+
+.dashboardMenuDiv{
+    display: flex;
+
+    width : 60%;
+    height : 38px;
+
+    margin-bottom: 38px;
+}
+
+.dashboardMenuDiv div{
+    width : 22%;
+    min-width: 95px;
+    height : 100%;
+    display: flex;
+
+    font-size : 17px;
+
+
+    border: 2.5px solid rgba(240, 189, 65);
+    border-radius: 7px;
+    margin-right: 8px;
+}
+
+.dashboardMenuDiv a{
+    margin-top : 10px;
+}
+
+
+
+
+.dashboardDiv{
+    width : 90%;
+    height : 580px;
+
+    border : 2px solid rgba(240, 189, 65);
+    border-radius: 5px;
+
+    text-align: center;
+}
+
+.dashboardTitle{
+    font-size : 22px;
+
+    margin-top: 13px;
+    font-weight: bold;
+}
+.dashoardOuterDiv{
+    display : flex;
+
+    margin-top: 30px;
+}
+
+.dashboarDivTitle{
+    font-size : 22px;
+    font-weight: bolder;
+}
+
+.dashboarDivText{
+    font-size : 14px;
+    margin-top : 7px;
+}
+
+
+.dashboardDiv1 {
+    margin-left : 25px;
+    width : 40%;
+    height : 480px;
+}
+
+.dashboardDiv2 {
+    margin-right: 10px;
+    width : 55%;
+    height : 480px;
+}
+.dashboardDiv1ImgDiv {
+    width : 95%;
+    height : 390px;
+
+    margin-top : 15px;
+}
+
+.dashboardDiv1ImgDiv img{
+    width : 100%;
+    height : 100%;
+}
+.dashboardDiv2ImgDiv {
+    width : 95%;
+    height : 390px;
+
+    margin-top : 15px;
+}
+
+.dashboardDiv2ImgDiv img{
+    width : 100%;
+    height : 100%;
+}
+.contentCenterDiv {
+    height : 780px;
+}
+.contentDiv {
+    height : 760px;
+}

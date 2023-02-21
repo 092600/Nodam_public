@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <th:block th:fragment="theOtherLayoutConfig">
+
+        <!-- css -->
+        <link rel="stylesheet" th:href="@{/css/layout/fragments/header.css}" >
+        <link rel="stylesheet" th:href="@{/css/layout/fragments/footer.css}" >
+        <link rel="stylesheet" th:href="@{/css/layout/theOtherLayout.css}" >
+        <link rel="stylesheet" th:href="@{/css/font/font.css}" >
+
+        <script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+        <script th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+
+    </th:block>
+</head>
+
+</html>

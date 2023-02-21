@@ -1,0 +1,126 @@
+
+.contentDiv{
+    min-width : 1315px;
+    height: 685px;
+    margin-bottom: 102px;
+}
+
+.contentCenterDiv{
+    border-bottom: 2px solid black;
+}
+
+.findDiv {
+    width : 100%;
+    height : 100%;
+
+}
+
+.findHeadTextDiv {
+    width : 100%;
+    height : 135px;
+    text-align: left;
+    margin-bottom: 43px;
+    border-bottom: 2px solid black;
+}
+
+.findHeadTextDiv p {
+    text-align: center;
+    width : 100%;
+
+    padding-top : 12px;
+    font-size : 24px;
+    font-weight: bolder;
+}
+
+.findIdHeadText {
+}
+.findEmailTextDiv {
+    width : 49%;
+    height : 68px;
+    margin-bottom: 38px;
+}
+.findEmailHeadTextSpanTag {
+    font-size : 21px;
+    font-weight: bolder;
+
+    border-bottom: 2px solid black;
+}
+
+.findEmailHeadTextPTag2 {
+    margin-top : 16px;
+}
+.findEmailContentDiv {
+    width: 100%;
+    text-align: center;
+}
+
+.findEmailInput {
+    font-size : 14px;
+    width : 274px;
+    height: 38px;
+}
+
+.findEmailContentDiv {
+    width : 49%;
+    height : 454px;
+}
+
+.findEmailContentPTag {
+    text-align: left;
+    height : 54px;
+    margin-bottom: 55px;
+}
+.findEmailContentPTag span {
+    font-size : 15px;
+}
+
+.findEmailContentPTag input {
+    margin-left : 22px;
+    margin-right: 18px;
+}
+
+.findEmailContentPTag button {
+    height : 45px;
+}
+
+
+.nodamUserFindIdPTag {
+    text-align: left;
+    font-size : 17px;
+    margin-bottom: 9px;
+}
+.nodamSocialUserFindIdPTag {
+    text-align: left;
+    font-size : 17px;
+}
+
+.nodamSocialUserFindIdDiv p{
+    text-align: left;
+}
+.kakaoSocialUserFindImg {
+    width : 45px;
+    height: 45px;
+    padding-top : 18px;
+    margin-left: 18px;
+}
+.findEmailInputInFindPw{
+    width : 296px;
+}
+
+.certificationNumberInput {
+    width : 296px;
+    height: 38px;
+
+    font-size : 14px;
+    margin-right: 18px;
+    margin-left : 6px;
+}
+
+.certificationNumberPTag {
+    margin-bottom: 55px;
+    text-align: left;
+    display : none;
+}
+.certificationNumberCheckButton {
+    height : 45px;
+}

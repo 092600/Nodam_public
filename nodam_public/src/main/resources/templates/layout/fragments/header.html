@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+</head>
+
+<body>
+    <div th:fragment="header">
+      <div>
+        <div class="headerDiv">
+          <div class="headerLeft">
+            <div class="logoDiv">
+              <div><a th:href="@{/}"><img class="logo" th:src="@{/images/logo.ico}"></a></div>
+              <span id="logoDivSpanTag">#노담지킴이</span>
+            </div>
+          </div>
+          <div class="headerCenter">
+            <div class="centerTopDiv" >
+              <div class="centerTopText">
+                <span >나는 네가 <span class="topPointText">#노담</span>이였으면 좋겠어</span>
+              </div>
+            </div>
+            <div class="centerBottomDiv" >
+              <div>
+                <a  th:href="@{/}" class="mainMenuButton" id="mainMenuButton">메인</a>
+                <a th:href="@{/smokingmap}" class="mapMenuButton" id="mapMenuButton" style="min-width: 184px;">서울시 흡연/금연 구역</a>
+                <a th:href="@{/clinic(page=1, region='서울')}" class="clinicMenuButton" id="clinicMenuButton">서울시 보건소 찾기</a>
+                <a th:href="@{/community(page=1, recordSize=10)}" class="communityMenuButton" id="communityMenuButton">노담 커뮤니티</a>
+                <a th:href="@{/dashboard/1}" class="dashboardMenuButton" id="dashboardMenuButton">대쉬보드</a>
+              </div>
+            </div>
+          </div>
+          <div class="headerRight">
+            <div class="loginDiv">
+              <span><a th:href="@{/logout}" th:if="${session.user} != null" >로그아웃</a></span>
+
+              <span><a th:href="@{/accounts/login}" th:if="${session.user} == null" >로그인</a></span>
+              <span><a th:href="@{/accounts/signup}" th:if="${session.user} == null" >회원가입</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</body>
+</html>

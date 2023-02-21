@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 로그인</title>
+
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+    <link rel="stylesheet" th:href="@{/css/pages/accounts/login/login.css}" >
+
+    <script th:src="@{/js/pages/main/mainPage.js}"></script>
+    <script th:src="@{/js/pages/accounts/login/login.js}"></script>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="centerLoginDiv">
+                    <span class="loginDivTitle">로그인</span>
+
+                    <div class="loginFormIdDiv">
+                        <input id="id" name="id" placeholder="아이디 입력">
+                    </div>
+                    <div class="loginFormPasswordDiv">
+                        <input type="password" id="password" name="password" placeholder="비밀번호 입력">
+                    </div>
+                    <div class="loginInnerDiv">
+                        <div ></div>
+                        <div class="findDiv">
+                            <a th:href="@{/accounts/findId}">아이디 찾기</a>
+                            <a>/</a>
+                            <a th:href="@{/accounts/findPw}">비밀번호 찾기</a>
+                        </div>
+                    </div>
+                    <div class="loginFormPasswordDiv">
+                        <button type="button" onclick="login()">로그인</button>
+                    </div>
+
+                    <div class="socialLoginDiv">
+                        <div class="kakaoLoginDiv">
+                            <a th:href="@{/oauth2/authorization/kakao}" th:if="${userName} == null" role="button">
+                                <img th:src="@{/images/kakaoLoginImage.png}">
+                            </a>
+<!--                            <a th:href="@{/oauth2/authorization/kakao/}"><img th:src="@{/images/kakaoLoginImage.png}"></a>-->
+                        </div>
+                    </div>
+                    <div class="signUpDiv">
+                        <div>
+                            <p>금연도전 위해 <a th:href="@{/accounts/signup}">회원가입 하러가기 !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 흡연 금연구역</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/smokingmap/smokingmap.css}" >
+
+    <script th:src="@{/js/pages/smokingmap/smokingmap.js}"></script>
+    <!-- <script th:src="@{/js/mainPages/index.js}"></script> -->
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="smokingmapDiv">
+                    <p class="smokingmapTitle" id="smokingmapTitle">서울시 흡연/금연 구역 확인하기</p>
+                    <div class="smokingmapOuterDiv">
+                        <div class="smokingmapSeleteDiv">
+                            <div class="selectorDiv">
+                                <select class="godwjdrn" style="height: 40px;">
+                                    <optgroup label="서울시히트맵">
+                                        <option value="흡연구역히트맵" selected>히트맵</option>
+                                    </optgroup>
+                                    <optgroup label="흡연구역">
+                                        <option value="서울시">서울시</option>
+                                        <option value="강남구">강남구</option>
+                                        <option value="강북구">강북구</option>
+                                        <option value="강서구">강서구</option>
+                                        <option value="관악구">관악구</option>
+                                        <option value="광진구">광진구</option>
+                                        <option value="구로구">구로구</option>
+                                        <option value="노원구">노원구</option>
+                                        <option value="동대문구">동대문구</option>
+                                        <option value="동작구">동작구</option>
+                                        <option value="마포구">마포구</option>
+                                        <option value="서대문구">서대문구</option>
+                                        <option value="서초구">서초구</option>
+                                        <option value="성동구">성동구</option>
+                                        <option value="송파구">송파구</option>
+                                        <option value="양천구">양천구</option>
+                                        <option value="영등포구">영등포구</option>
+                                        <option value="용산구">용산구</option>
+                                        <option value="은평구">은평구</option>
+                                        <option value="중구">중구</option>
+                                        <option value="중랑구">중랑구</option>
+                                    </optgroup>
+                                    <optgroup label="금연구역">
+                                        <option value="서울시금연구역">서울시 금연구역</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="mapInfoDiv" id="mapInfoDiv" >
+                            </div>
+                        </div>
+                        <div class="smokingmapDiv1" id="smokingmapDiv1">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <script type="text/javascript" src="index.js"></script> -->
+
+</body>
+</html>

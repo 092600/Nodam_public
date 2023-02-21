@@ -1,0 +1,76 @@
+#mapMenuButton {
+    color : rgba(240, 189, 65);;
+}
+
+.contentDiv{
+    height : 985px;
+    min-width : 1225px;
+}
+.indexContentDiv{
+    height : 1115px;
+}
+
+.smokingmapDiv{
+    width : 90%;
+    height : 940px;
+
+    border : 2px solid rgba(240, 189, 65);
+    border-radius: 5px;
+
+    text-align: center;
+}
+
+.smokingmapTitle{
+    font-size : 22px;
+
+    margin-top: 13px;
+    font-weight: bold;
+}
+.smokingmapOuterDiv{
+    display : inline;
+
+    margin-top: 30px;
+    height : 1000px;
+}
+
+.smokingmapSeleteDiv {
+    width : 85%;
+    height: 65px;
+
+    margin-top: 35px;
+
+    display: flex;
+
+    text-align: left;
+}
+
+.smokingmapDiv{
+    width : 90%;
+    min-width: 180px;
+    height : 985px;
+}
+select {
+    margin-top : 12px;
+    margin-left: 16px;
+}
+.mapInfoDiv{
+    width : 75%;
+    height : 100%;
+    text-align: right;
+}
+
+.mapInfoDiv p {
+    font-size: 24px;
+    padding-top : 18px;
+}
+.smokingmapDiv1 {
+    width : 85%;
+    height : 75%;
+}
+
+.smokingmapImgDiv {
+    width : 95%;
+    height : 390px;
+
+    margin-top : 15px;
+}

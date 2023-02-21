@@ -1,0 +1,49 @@
+@media screen and (min-width: 833px) {
+    *{
+        margin : 0px auto;
+    }
+
+    .logoDivSpanTag{
+        font-family: SCD8;
+    }
+
+    img {
+        -webkit-user-drag: none;
+    }
+    body{
+        min-width: 833px;
+    }
+
+    .indexContentDiv{
+        width : 100%;
+        height : 1430px;
+        display: inline;
+    }
+
+    .contentDiv{
+        display: flex;
+        width : 100%;
+        height : 1300px;
+    }
+    .contentLeftDiv{
+        height : 100%;
+        width : 215px;
+    }
+
+    .contentCenterDiv{
+        height : 100%;
+        width : 100%;
+
+        display: inline-block;
+
+        border-right: 0.5px solid lightgray;
+        border-left: 0.5px solid lightgray;
+    }
+
+
+    .contentRightDiv{
+        height : 100%;
+        width : 195px;
+    }
+
+}

@@ -1,0 +1,105 @@
+.contentDiv{
+    height : 575px;
+    width : 100%;
+    min-width : 1315px;
+}
+.contentCenterDiv{
+    height : 550px;
+}
+.centerLoginDiv{
+    margin-top : 25px;
+    width : 100%;
+    height : 75%;
+
+    text-align: center;
+
+    display : block;
+}
+
+.loginDivTitle {
+    font-size : 28px;
+    font-weight: bold;
+}
+.loginFormIdDiv {
+    margin-top : 25px;
+    margin-bottom: 15px;
+}
+.loginFormPasswordDiv{
+
+}
+input {
+    width : 325px;
+    height : 45px;
+
+}
+
+.loginInnerDiv {
+    margin-top : 8px;
+    margin-bottom : 10px;
+
+    width : 332px;
+    height : 18px;
+    display : flex;
+}
+.findDiv a{
+    position: relative;
+    width : 10%;
+    right : -40px;
+    font-size : 15px;
+}
+
+button  {
+    width : 335px;
+    height : 48px;
+}
+
+.socialLoginDiv {
+    height  :50px;
+    width : 332px;
+    margin-top : 24px;
+
+}
+
+.kakaoLoginDiv{
+    background-color: #FEE500;
+    border : none;
+    border-radius: 12px;
+}
+.kakaoLoginDiv span {
+    font-size: 24px;
+}
+.kakaoLoginDiv img{
+    width : 100%;
+    height : 100%;
+}
+
+.signUpDiv {
+    margin-top : 16px;
+    height : 100px;
+    padding-top : 8px;
+    width : 275px;
+    display : flex;
+}
+.signUpDiv div {
+    display: flex;
+    width : 330px;
+    height: 65px;
+
+}
+.signUpDiv p{
+    margin-top : 25px;
+}
+.signUpDiv span {
+    font-size : 20px;
+}
+.signUpDiv a{
+    padding : 10px;
+    border: 1px solid  rgb(255, 183, 0);
+    border-radius: 12px;
+    display: inline;
+    font-size : 18px;
+}
+
+.signUpDiv a:hover {
+    color : #fee500f1;
+}

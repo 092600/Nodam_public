@@ -1,0 +1,124 @@
+/*@media screen and (min-width: 833px) {*/
+.headerDiv{
+    padding-top : 40px;
+    padding-bottom : 25px;
+    width : 100%;
+    min-width : 1315px;
+    height : 130px;
+
+    display : flex;
+    border-top: 0.5px solid rgb(197, 197, 197);
+    border-bottom: 0.5px solid rgb(197, 197, 197);
+}
+
+.headerLeft {
+    width : 20%;
+    height : 100%;
+
+    display : flex;
+}
+.logoDiv {
+    padding-top : 20px;
+}
+
+.logoDiv span{
+    color : black;
+    font-weight: 500;
+}
+.logo{
+    width : 65px;
+    height : 65px;
+
+}
+.headerCenter {
+    width : 65%;
+    height : 100%;
+
+}
+
+.centerTopDiv{
+    width : 100%;
+    height : 50%;
+
+    display : flex;
+}
+.centerTopText{
+    padding-top : 22px;
+    font-size: 32px;
+
+    color : grey;
+    font-family: SCD8;
+}
+
+.topPointText{
+    color : rgba(240, 189, 65);
+}
+.centerBottomDiv{
+    width : 100%;
+    height : 50%;
+
+    display: flex;
+    font-size : 18px;
+    font-weight: bolder;
+
+    color : gray;
+}
+
+.centerBottomDiv div{
+    display: flex;
+    width : 90%;
+}
+
+.centerBottomDiv a{
+    /* margin : 26px; */
+    margin-top: 20px;
+    height : 20px;
+    /*width : 100%;*/
+    text-align: center;
+    text-decoration: none;
+    color : black;
+}
+
+.mainMenuButton{
+    min-width : 45px;
+}
+.mapMenuButton {
+    min-width : 145px;
+}
+.clinicMenuButton {
+    min-width : 135px;
+}
+
+.communityMenuButton {
+    min-width : 105px;
+}
+.dashboardMenuButton {
+    min-width : 65px;
+}
+
+
+a:link {
+    color : black;
+    text-decoration: none;
+}
+a:visited {
+    color : black;
+    text-decoration: none;
+}
+a:hover {
+    color : rgba(240, 189, 65);;
+    text-decoration: none;
+}
+.headerRight {
+    width : 15%;
+    height : 100%;
+}
+
+.loginDiv{
+    width : 120px;
+    height : 35px;
+    margin: 20px;
+    margin-left : 45px;
+}
+
+/*}*/

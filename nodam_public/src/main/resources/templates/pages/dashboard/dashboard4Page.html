@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 대쉬보드</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/dashboard/dashboard1N4.css}" >
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="dashboardMenuDiv">
+                    <div>
+                        <a href="/dashboard/1">대쉬보드 1</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/2">대쉬보드 2</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/3">대쉬보드 3</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/4">대쉬보드 4</a>
+                    </div>
+                </div>
+                <div class="dashboardDiv">
+                    <p class="dashboardTitle">서울시 자치구별 흡연 실태</p>
+                    <div class="dashboardDiv1">
+                        <p class="dashboarDiv1Title">그림 1. 서울시 자치구별 흡연율</p>
+                        <p class="dashboarDiv1Text">◦ 서울시 자치구별 흡연율은 약 12%~19%로 자치구별 편차가 크지 않음</p>
+
+                        <div class="dashboardDiv1ImgDiv">
+                            <img th:src="@{/images/dashboard/dashboard5_1.png}">
+                        </div>
+                    </div>
+
+                    <div class="dashboardDiv2">
+                        <p class="dashboarDiv1Title">그림 2. 서울시 자치구별 천 명당 흡연시설 수</p>
+                        <p class="dashboarDiv1Text">◦ 서울시 자치구별 흡연률은 큰 편차를 보이지 않는 반면(<그림 1> 참조), 자치구별 천 명당 흡연시설 수의 편차는 매우 큼천 명당 흡연시설 수는 광진구(약 0.7개)에 가장 많이 분포되어 있고, 동작구(약 0.002개)는 가장 적게 분포되어 있음</p>
+
+                        <div class="dashboardDiv2ImgDiv">
+                            <img th:src="@{/images/dashboard/dashboard5_2.png}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

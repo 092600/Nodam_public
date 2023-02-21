@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 대쉬보드</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/dashboard/dashboard2N3.css}" >
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="dashboardMenuDiv">
+                    <div>
+                        <a href="/dashboard/1">대쉬보드 1</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/2">대쉬보드 2</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/3">대쉬보드 3</a>
+                    </div>
+                    <div>
+                        <a href="/dashboard/4">대쉬보드 4</a>
+                    </div>
+                </div>
+                <div class="dashboardDiv">
+                    <p class="dashboardTitle">국내 흡연 실태</p>
+                    <div class="dashoardOuterDiv">
+                        <div class="dashboardDiv1">
+                            <p class="dashboarDivTitle">그림 1. 폐암 환자의 과거 흡연 여부 통계</p>
+                            <p class="dashboarDivText">◦ 폐암 환자 중 남성은 28.52%, 여성은 9.17%가 과거 흡연 경험이 있음</p>
+                            <div class="dashboardDiv1ImgDiv">
+                                <img th:src="@{/images/dashboard/dashboard2_1.png}">
+                            </div>
+                        </div>
+
+                        <div class="dashboardDiv2">
+                            <p class="dashboarDivTitle">그림 2. 주요 암으로 인한 사망자 수 통계</p>
+                            <p class="dashboarDivText">◦ 최근 5년동안 주요 암 중 폐암으로 인한 사망자 수가 가장 많은 비중을 차지함</p>
+                            <div class="dashboardDiv2ImgDiv">
+                                <img th:src="@{/images/dashboard/dashboard2_2.png}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

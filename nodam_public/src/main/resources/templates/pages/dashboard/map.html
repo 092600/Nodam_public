@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/otherMenuLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 대쉬보드</title>
+
+    <link rel="stylesheet" th:href="@{/css/mainPages/smokingmap.css}" >
+
+    <script>
+        $(document).ready(function(){
+            document.getElementById('dashboardDiv1').innerHTML='<object width="100%" height="100%" type="text/html" data="/mapHtml/금연구역히트맵.html"></object>';
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            document.getElementById('dashboardDiv1').innerHTML='<object width="100%" height="635px" type="text/html" data="/mapHtml/히트맵.html"></object>';
+            document.getElementById('mapInfoDivText').innerText='서울시의 흡연구역은 중랑구, 광진구, 은평구가 가장 많습니다.'
+            document.getElementById('dashboardTitle').innerText='히 트 맵'
+            $('.godwjdrn').change(function(){
+                document.getElementById('dashboardDiv1').innerHTML='';
+                var value_name = $('option:selected', this).text();
+                document.getElementById('dashboardDiv1').innerHTML='<object width="100%" height="600px" type="text/html" data="/mapHtml/'+value_name+'.html"></object>';
+                if (value_name == '서울시'){
+                    document.getElementById('dashboardTitle').innerHTML='흡연구역 지도';
+                    document.getElementById('mapInfoDivText').innerHTML='총 322개'
+                } else if (value_name=='서울시 금연구역'){
+                    document.getElementById('mapInfoDivText').innerHTML='총 5292개'
+                    document.getElementById('dashboardTitle').innerHTML='금연구역 지도';
+                }  else if (value_name=='히트맵'){
+                    document.getElementById('dashboardTitle').innerText='히 트 맵';
+                    document.getElementById('mapInfoDivText').innerText='서울시의 흡연구역은 중랑구, 광진구, 은평구가 가장 많습니다.'
+                }else {
+                    document.getElementById('dashboardTitle').innerHTML='흡연구역 지도';
+                    var dict_gu = {}
+                    dict_gu['강남구'] = '2';
+                    dict_gu['강동구'] = '0';
+                    dict_gu['강서구'] = '12';
+                    dict_gu['강북구'] = '5';
+                    dict_gu['관악구'] = '5';
+                    dict_gu['광진구'] = '12';
+                    dict_gu['구로구'] = '12';
+                    dict_gu['노원구'] = '5';
+                    dict_gu['동대문구'] = '27';
+                    dict_gu['동작구'] = '1';
+                    dict_gu['마포구'] = '3';
+                    dict_gu['서대문구'] = '4';
+                    dict_gu['서초구'] = '24';
+                    dict_gu['성동구'] = '1';
+                    dict_gu['송파구'] = '4';
+                    dict_gu['양천구'] = '24';
+                    dict_gu['영등포구'] = '53';
+                    dict_gu['용산구'] = '37';
+                    dict_gu['은평구'] = '65';
+                    dict_gu['중구'] = '5';
+                    dict_gu['중랑구'] = '56';
+
+                    document.getElementById('mapInfoDivText').innerText='총 '+dict_gu[value_name]+'개';
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="indexContentDiv">
+        <div class="contentDiv">
+            <div class="contentLeftDiv"></div>
+
+            <div class="contentCenterDiv">
+                <div class="dashboardDiv">
+                    <p class="dashboardTitle">서울시 금연 구역</p>
+                    <div class="smokingmapOuterDiv">
+                        <div class="smokingmapSeleteDiv">
+                            <div class="selectorDiv">
+                                <select class="godwjdrn" style="height: 40px;">
+                                    <optgroup label="서울시히트맵">
+                                        <option value="흡연구역히트맵" selected>히트맵</option>
+                                    </optgroup>
+                                    <optgroup label="흡연구역">
+                                        <option value="서울시">서울시</option>
+                                        <option value="강남구">강남구</option>
+                                        <option value="강북구">강북구</option>
+                                        <option value="강서구">강서구</option>
+                                        <option value="관악구">관악구</option>
+                                        <option value="광진구">광진구</option>
+                                        <option value="구로구">구로구</option>
+                                        <option value="노원구">노원구</option>
+                                        <option value="동대문구">동대문구</option>
+                                        <option value="동작구">동작구</option>
+                                        <option value="마포구">마포구</option>
+                                        <option value="서대문구">서대문구</option>
+                                        <option value="서초구">서초구</option>
+                                        <option value="성동구">성동구</option>
+                                        <option value="송파구">송파구</option>
+                                        <option value="양천구">양천구</option>
+                                        <option value="영등포구">영등포구</option>
+                                        <option value="용산구">용산구</option>
+                                        <option value="은평구">은평구</option>
+                                        <option value="중구">중구</option>
+                                        <option value="중랑구">중랑구</option>
+                                    </optgroup>
+                                    <optgroup label="금연구역">
+                                        <option value="서울시금연구역">서울시 금연구역</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="mapInfoDiv">
+                                <p class="mapInfoDivText">서울시가 가장 많습니다.</p>
+                            </div>
+                        </div>
+                        <div class="smokingmapDiv1" id="smokingmapDiv1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentRightDiv"></div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
