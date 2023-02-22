@@ -41,6 +41,25 @@ input {
     height : 18px;
     display : flex;
 }
+
+
+
+.errorMessageDiv {
+    width : 332px;
+    height : 34px;
+
+    text-align: left;
+}
+
+.errorMessageDiv p {
+    width : 320px;
+    height : 34px;
+
+    font-size : 14px;
+    color : rgb(232, 46, 46);
+}
+
+
 .findDiv a{
     position: relative;
     width : 10%;

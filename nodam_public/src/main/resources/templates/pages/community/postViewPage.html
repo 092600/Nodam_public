@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/theOtherLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 커뮤니티</title>
+
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayoutCss/getCommunity.css}" >
+    <link rel="stylesheet" th:href="@{/css/communityWriteBoard.css}" >
+
+    <script th:src="@{/js/post.js}"></script>
+</head>
+
+<body>
+
+    <div layout:fragment="content">
+        <div class="indexContentDiv">
+            <div class="contentDiv">
+                <div class="contentLeftDiv"></div>
+
+                <div class="contentCenterDiv">
+                    <div class="commnuityDiv1">
+                        <div class="commnuityTextDiv">
+                            <p class="mainText">노담노담 커뮤니티</p>
+                            <p class="subText">#담배는 노답, #나는 노담! 우리 함께 이겨냅시다!</p>
+                        </div>
+                        <div class="commnuityButtonDiv">
+                            <div class="commnuityButtonInnerDiv1"></div>
+                            <div class="commnuityButtonInnerDiv2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boardCommnuityDiv2">
+                        <form>
+                            <div class="boardWriterDiv">
+                                <input type="hidden" th:value="${post.PostNum}" name="postNum" id="postNum">
+                                <div class="boardWriterTextDiv">
+                                    <p class="inputTextPTag">작성자</p>
+                                </div>
+                                <div class="boardWriterContentDiv">
+                                    <input id="postWriter" th:value="${post.postAuthor}" readonly>
+                                </div>
+                            </div>
+                            <div class="boardTitleDiv">
+                                <div class="boardTitleTextDiv">
+                                    <p class="inputTextPTag" inputTextPTag>제목</p>
+                                </div>
+                                <div class="boardTitleContentDiv">
+                                    <input name="updatePostTitle" id="updatePostTitle" th:if="${session.user != null} and ${session.user.getName()} == ${post.postAuthor}" th:value="${post.PostTitle}" >
+                                    <input id="postTitle" th:if="${session.user == null} or ${session.user.getName()} != ${post.postAuthor}" th:value="${post.PostTitle}" readonly>
+                                </div>
+                            </div>
+                            <div class="boardContentDiv">
+                                <div class="boardContentTextDiv">
+                                    <p class="testareaTextPTag"></p>
+                                </div>
+                                <div class="boardContentContentDiv">
+                                    <textarea name="updatePostContent" id="updatePostContent" th:if="${session.user != null} and ${session.user.getName()} == ${post.postAuthor}" cols="100" rows="180" th:text="${post.PostContent}"></textarea>
+                                    <textarea name=""  id="postContent" th:if="${session.user == null} or ${session.user.getName()} != ${post.postAuthor}" cols="100" rows="180" th:text="${post.PostContent}" readonly></textarea>
+                                </div>
+                            </div>
+                            <div class="boardButtonDiv">
+                                <button type="button" class="boardButton" th:if="${session.user != null} and ${session.user.getName()} == ${post.postAuthor}" onclick="postUpdate()">
+                                    <a>글 수정하기</a>
+                                </button>
+                                <button type="button" class="boardButton" th:if="${session.user != null} and ${session.user.getName()} == ${post.postAuthor}" onclick="postDelete()">
+                                    <a>글 삭제하기</a>
+                                </button>
+    <!--                            <button th:if="${session.user.getName()} == ${post.postAuthor}" class="boardButton" onclick="postDelete()">글 삭제하기</button>-->
+                                <button type="button" class="boardButton"><a th:href="@{/community?page=1&recordSize=10}">돌아가기</a></button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contentRightDiv"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

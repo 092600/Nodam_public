@@ -3,18 +3,12 @@ package com.nodam.nodam_public.domain.user;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.nodam.nodam_public.domain.post.Post;
 import com.nodam.nodam_public.domain.time_entity.UserTimeEntity;
+import com.nodam.nodam_public.domain.user.info.UserInfo;
+import com.nodam.nodam_public.domain.user.role.UserRole;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +17,10 @@ import lombok.NoArgsConstructor;
 @Setter
 @Getter
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
 public class User extends UserTimeEntity {
-    
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
@@ -47,7 +42,7 @@ public class User extends UserTimeEntity {
 
 
 
-    
+
     @Embedded
     private UserInfo userInfo;
 

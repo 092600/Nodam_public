@@ -18,11 +18,11 @@ import com.nodam.nodam_public.domain.user.User;
 
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Data;
 import lombok.Getter;
 
 
-@Setter
-@Getter
+@Data
 @Entity
 @NoArgsConstructor
 public class Post {

@@ -1,4 +1,4 @@
-package com.nodam.nodam_public.domain.user;
+package com.nodam.nodam_public.domain.user.info;
 
 import java.util.Date;
 

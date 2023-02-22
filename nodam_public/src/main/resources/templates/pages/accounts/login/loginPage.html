@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>노담지킴이 로그인</title>
 
-    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+    <link rel="stylesheet" th:href="@{/css/layout/theOtherLayout.css}" >
     <link rel="stylesheet" th:href="@{/css/pages/accounts/login/login.css}" >
 
     <script th:src="@{/js/pages/main/mainPage.js}"></script>
@@ -25,24 +25,29 @@
                 <div class="centerLoginDiv">
                     <span class="loginDivTitle">로그인</span>
 
-                    <div class="loginFormIdDiv">
-                        <input id="id" name="id" placeholder="아이디 입력">
-                    </div>
-                    <div class="loginFormPasswordDiv">
-                        <input type="password" id="password" name="password" placeholder="비밀번호 입력">
-                    </div>
-                    <div class="loginInnerDiv">
-                        <div ></div>
-                        <div class="findDiv">
-                            <a th:href="@{/accounts/findId}">아이디 찾기</a>
-                            <a>/</a>
-                            <a th:href="@{/accounts/findPw}">비밀번호 찾기</a>
+                    <form method="POST" action="/accounts/login">
+                        <div class="loginFormIdDiv">
+                            <input id="id" name="email" placeholder="아이디 입력">
                         </div>
-                    </div>
-                    <div class="loginFormPasswordDiv">
-                        <button type="button" onclick="login()">로그인</button>
-                    </div>
+                        <div class="loginFormPasswordDiv">
+                            <input type="password" id="password" name="password" placeholder="비밀번호 입력">
+                        </div>
 
+                        <div class="loginInnerDiv">
+                            <div ></div>
+                            <div class="findDiv">
+                                <a th:href="@{/accounts/findId}">아이디 찾기</a>
+                                <a>/</a>
+                                <a th:href="@{/accounts/findPw}">비밀번호 찾기</a>
+                            </div>
+                        </div>
+                        <div class="errorMessageDiv" th:if="${errorMessage != null}">
+                            <p th:text="${errorMe}"></p>
+                        </div>
+                        <div class="loginFormPasswordDiv">
+                            <button type="submit">로그인</button>
+                        </div>
+                    </form>
                     <div class="socialLoginDiv">
                         <div class="kakaoLoginDiv">
                             <a th:href="@{/oauth2/authorization/kakao}" th:if="${userName} == null" role="button">

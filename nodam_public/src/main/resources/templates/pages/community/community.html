@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/defaultLayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담지킴이 커뮤니티</title>
+
+    <link rel="stylesheet" th:href="@{/css/otherMenuLayoutCss/community.css}" >
+    <link rel="stylesheet" th:href="@{/css/pages/community/community.css}" >
+
+    <script th:src="@{/js/pages/community/community.js}"></script>
+
+</head>
+
+<body>
+
+    <div layout:fragment="content">
+        <div class="indexContentDiv" id="indexContentDiv">
+            <div class="contentDiv" id="contentDiv">
+                <div class="contentLeftDiv"></div>
+
+                <div class="contentCenterDiv" id="contentCenterDiv">
+                    <div class="commnuityDiv1">
+                        <div class="commnuityTextDiv">
+                            <p class="mainText">노담노담 커뮤니티</p>
+                            <p class="subText">#담배는 노답, #나는 노담! 우리 함께 이겨냅시다!</p>
+                        </div>
+                        <div class="commnuityButtonDiv">
+                            <div class="commnuityButtonInnerDiv1"></div>
+                            <div class="commnuityButtonInnerDiv2">
+                                <button class="createPost">
+                                    <a sec:authorize="!isAuthenticated()" onclick="goToLoginPage()" th:href="@{/community/post/write}">글 작성</a>
+                                    <a sec:authorize="isAuthenticated()" th:href="@{/community/post/write}">글 작성</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commnuityDiv2" id="commnuityDiv2">
+                        <div class="communitySearchDiv">
+                            <span><input class="searchPostTitle" id="searchPostTitle" name="searchPostTitle" placeholder="제목"></span>
+                            <span><input class="searchPostAuthor" id="searchPostAuthor" name="searchPostAuthor" placeholder="작성자"></span>
+                            <select id="findPostsSelectTag" name="findPostsSelectTag">
+                                <option>5</option>
+                                <option selected>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                            </select>
+                            <button onclick="searchPost()">검색</button>
+                        </div>
+                        <table class="communityTable" id="communityTable">
+                            <thead class="communityTableHeader">
+                            <tr class="communityTableHeaderTr">
+                                <th class="postNum">번호</th>
+                                <th class="postTitle">제목</th>
+                                <th class="postWriter">작성자</th>
+                                <th class="postCreadteDate">작성일</th>
+                                <th class="postViewCnt">조회수</th>
+                            </tr>
+                            </thead>
+                            <tbody class="communityTableBody">
+                                <!-- <tr th:each="post : ${posts}">
+                                    <td class="postNumTD" th:text="${post.postNum}" ></td>
+                                    <td class="postTitleTD">
+                                        <a th:text="${post.postTitle}"
+                                                               th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
+                                    <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
+                                    <td class="createdDateTD" th:text="${post.createdDate}"></td>
+                                    <td class="viewCntTD" th:text="${post.viewCnt}"></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <div class="communityPageButton">
+                            <!-- <ul class="pagination justify-content-center" th:if="${!posts.isEmpty()}" >
+                                <li th:each="page: ${#numbers.sequence(1, posts.totalPages)}"
+                                    th:if="${page >= posts.number -5 and page <= posts.number+5}"
+                                    th:classappend="${page == posts.number} ? 'active'"
+                                    class="page-item">
+                                    <a th:text="${page}" class="page-link" th:href="@{|?page=${page}&recordSize=${recordSize}|}"></a>
+                                </li>
+                                <li class="page-item" th:if="${posts.number < posts.totalPages -1}"
+                                    th:classappend="${!posts.hasNext} ? 'disabled'">
+                                    <a class="page-link" th:href="@{|?page=${posts.pageable.getPageNumber()+2}&recordSize=${recordSize}|}">
+                                        <span>다음</span>
+                                    </a>
+                                </li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="contentRightDiv">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

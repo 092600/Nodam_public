@@ -51,25 +51,26 @@
                 <div class="contentLeftDiv">
                     <div class="userInfoDiv">
                         <div class="userIconNInfo">
-                            <img class="userImgNL" th:if="${session.user} == null" th:src="@{/images/right_img_04.JPG}">
+                            <img class="userImgNL" sec:authorize="!isAuthenticated()" th:src="@{/images/right_img_04.JPG}">
                             <div class="userImgDiv" >
-                                <img class="userImgL" th:if="${session.user} != null" th:src="@{/images/user.JPG}">
+                                <img class="userImgL" sec:authorize="isAuthenticated()" th:src="@{/images/user.JPG}">
                             </div>
                             <div class="userNameDiv">
-                                <span><a th:if="${session.user} != null" th:text="${session.user.getName()}"></a></span>
+                                <span><a sec:authorize="isAuthenticated()" sec:authentication="name"></a></span>
                             </div>
                         </div>
                         <div class="infoButtonDiv">
                             <div>
-                                <input type="hidden" th:if="${session.user} != null" th:value="${session.user.getEmail()}" id="sessionUserEmail">
-                                <a th:if="${session.user} != null and ${session.user.getNoSmokeStartDate()} == 'null'" onclick="noSmoking()" >금연하기</a>
-                                <a th:if="${session.user} != null and ${session.user.getNoSmokeStartDate()} != 'null'"  onclick="noSmokingStop()">금연 끝내기</a>
-                                <a th:if="${session.user} == null"></a>
+                                <input type="hidden" sec:authorize="isAuthenticated()" id="sessionUserEmail" th:value="${#authentication.name}">
+                                
+                                <a sec:authorize="isAuthenticated()" th.if="${#authentication.principal.user.userInfo.noSmokingDate == null}" onclick="noSmoking()" >금연하기</a>
+                                <a sec:authorize="isAuthenticated()" th:if="${#authentication.principal.user.userInfo.noSmokingDate != null}"  onclick="noSmokingStop()">금연 끝내기</a>
+                                <a sec:authorize="!isAuthenticated()"></a>
                             </div>
                             <div>
 
-                                <a th:if="${session.user} != null" th:href="@{/accounts/myinfo}">내 정보</a>
-                                <a th:if="${session.user} == null" ></a>
+                                <a sec:authorize="isAuthenticated()" th:href="@{/accounts/myinfo}">내 정보</a>
+                                <a sec:authorize="!isAuthenticated()" ></a>
                             </div>
                         </div>
                     </div>

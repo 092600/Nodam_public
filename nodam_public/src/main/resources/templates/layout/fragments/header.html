@@ -36,10 +36,10 @@
           </div>
           <div class="headerRight">
             <div class="loginDiv">
-              <span><a th:href="@{/logout}" th:if="${session.user} != null" >로그아웃</a></span>
+              <span><a th:href="@{/accounts/logout}" sec:authorize="isAuthenticated()" >로그아웃</a></span>
 
-              <span><a th:href="@{/accounts/login}" th:if="${session.user} == null" >로그인</a></span>
-              <span><a th:href="@{/accounts/signup}" th:if="${session.user} == null" >회원가입</a></span>
+              <span><a th:href="@{/accounts/login}" sec:authorize="!isAuthenticated()" >로그인</a></span>
+              <span><a th:href="@{/accounts/signup}" sec:authorize="!isAuthenticated()" >회원가입</a></span>
             </div>
           </div>
         </div>
