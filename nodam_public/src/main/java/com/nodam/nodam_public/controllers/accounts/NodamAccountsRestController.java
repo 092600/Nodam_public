@@ -4,8 +4,10 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,30 +46,22 @@ public class NodamAccountsRestController {
     }
 
 
-    // @PostMapping(value = "/login")
-    // public boolean login(@RequestBody User loginUser){
-    //     if (userService.isExistUserEmail(loginUser.getEmail())){
-    //         Optional<User> findUser = userService.findByUserEmail(loginUser.getEmail());
+    @PostMapping(value = "/mypage/certification")
+    public boolean certificateUser(@RequestBody User tmp, Authentication auth) {
+        if (auth.getName().equals(tmp.getEmail())) {
+            return userService.matchingPassword(tmp);
+        } 
 
+        return false;
+    }
 
-    //         if (findUser.isPresent()) {
-    //             if (userService.passwordMatching(loginUser, findUser.get())){
-    //                 // SessionUser sessionUser = new SessionUser(findUser);
-    //                 httpSession.setAttribute("user", findUser);
+    @PatchMapping(value = "/mypage/password")
+    public boolean changePassword(User tmp, Authentication auth) {
+        if (auth.getName().equals(tmp.getName())) {
+            userService.changePassword(tmp);
+        }
 
-    //                 return true;
-    //             } else {
-    //                 return false;
-    //             }
-
-    //         } else {
-    //             return false;
-    //         }
-
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-
+        return true;
+    }
+    
 }

@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,12 +19,12 @@ public class NodamUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findUserByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
 
-        if (user == null) {
+        if (!user.isPresent()) {
             throw new UsernameNotFoundException("didn't found user");
         }
 
-        return new NodamUserDetails(user);
+        return new NodamUserDetails(user.get());
     }
 }

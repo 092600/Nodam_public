@@ -1,4 +1,4 @@
-package com.nodam.nodam_public.domain.time_entity;
+package com.nodam.nodam_public.domain.timeEntity;
 
 import java.time.LocalDateTime;
 import javax.persistence.EntityListeners;

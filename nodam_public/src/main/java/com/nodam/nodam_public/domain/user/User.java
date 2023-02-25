@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.nodam.nodam_public.domain.post.Post;
-import com.nodam.nodam_public.domain.time_entity.UserTimeEntity;
+import com.nodam.nodam_public.domain.timeEntity.UserTimeEntity;
 import com.nodam.nodam_public.domain.user.info.UserInfo;
 import com.nodam.nodam_public.domain.user.role.UserRole;
 

@@ -17,7 +17,6 @@ $(document).ready(function(){
                 '</tr>');
         }
     }).fail(function (error) {
-        alert(JSON.stringify(data));
         alert(JSON.stringify(error));
     });
 
@@ -48,10 +47,12 @@ function regionChange(e){
                 '</tr>');
         }
     }).fail(function (error) {
-        alert(JSON.stringify(data));
         alert(JSON.stringify(error));
     });
 }
+
+
+
 function noSmoking(){
     var url = "/nosmoking";
     var name = "노담 서약서";
@@ -64,7 +65,7 @@ function noSmokingStop(){
         alert("잘 생각하셨어요 !\n조금만 더 힘내보아요 !!");
     } else {
         var data = {
-            email : $("#sessionUserEmail").val()
+            id : $("#id").val()
         }
         $.ajax({
             type : 'POST',
@@ -72,12 +73,18 @@ function noSmokingStop(){
             dataType : 'JSON',
             contentType : "application/json",
             data : JSON.stringify(data),
-        }).done(function(result) {
-            alert(result +"분이나 금연하셨는데 아쉬워요 !\n" +
+        }).done(function(date) {
+            
+            if (date != null) {
+                alert(date +"일이나 금연하셨는데 아쉬워요 !\n" +
                 "다음에 또 도전해봐요 !");
-            window.location.href = "/";
+                window.location.href = "/";
+            } else {
+                alert("다시 한번 시도해주세요");
+            }
+
         }).fail(function (error) {
-            alert(JSON.stringify(data));
+            // alert(JSON.stringify(data));
         });
     }
 }

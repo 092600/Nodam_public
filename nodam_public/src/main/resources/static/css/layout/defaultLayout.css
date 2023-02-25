@@ -121,7 +121,7 @@ ul, li {
 label.left {
     left:20px;
     background-color: rgba(240, 189, 65);
-    background-image:url('../images/leftArrow.png');
+    background-image:url('../../images/leftArrow.png');
     background-position: center center;
     background-size : 50%;
     background-repeat: no-repeat;
@@ -130,7 +130,7 @@ label.left {
 label.right {
     right:20px;
     background-color: rgba(240, 189, 65);
-    background-image:url('../images/rightArrow.png');
+    background-image:url('../../images/rightArrow.png');
     background-position: center center;
     background-size : 50%;
     background-repeat: no-repeat;

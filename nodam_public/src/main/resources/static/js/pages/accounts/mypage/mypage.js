@@ -83,7 +83,7 @@ function certificationPassword(){
         password : $("#userPasswordCertification").val(),
     }
     $.ajax({
-        url:"/api/v4/accounts/myinfo/certificationPassword",
+        url:"/api/v4/accounts/mypage/certificationPassword",
         type:"POST",
         cache:false,
         async:false,
@@ -120,8 +120,8 @@ function changingPassword(){
         password : $("#password").val(),
     }
     $.ajax({
-        url:"/api/v4/accounts/myinfo/changingPassword",
-        type:"POST",
+        url:"/api/v4/accounts/mypage/password",
+        type:"PATCH",
         cache:false,
         async:false,
         dataType : 'JSON',

@@ -12,7 +12,8 @@
     <link rel="stylesheet" th:href="@{/css/pages/community/postViewPage.css}" >
     <link rel="stylesheet" th:href="@{/css/pages/community/postWritePage.css}" >
 
-    <script th:src="@{/js/pages/community/community.js}"></script>
+    <script th:src="@{/js/pages/community/post/post.js}"></script>
+    
 </head>
 
 <body>
@@ -36,39 +37,38 @@
                         </div>
                     </div>
                     <div class="boardCommnuityDiv2">
-                        <form method="POST"  action="/community/post" enctype="text/plain">
-                            <div class="boardWriterDiv">
-                                <div class="boardWriterTextDiv">
-                                    <p class="inputTextPTag">작성자</p>
-                                </div>
-                                <div class="boardWriterContentDiv">
-                                    <input id="writer" th:value="${#authentication.principal.user.name}" readonly>
-                                </div>
+
+                        <div class="boardWriterDiv">
+                            <div class="boardWriterTextDiv">
+                                <p class="inputTextPTag">작성자</p>
                             </div>
-                            <div class="boardTitleDiv">
-                                <div class="boardTitleTextDiv">
-                                    <p class="inputTextPTag" >제목</p>
-                                </div>
-                                <div class="boardTitleContentDiv">
-                                    <input id="title">
-                                </div>
+                            <div class="boardWriterContentDiv">
+                                <input id="writer" th:value="${#authentication.principal.user.email}" readonly>
                             </div>
-                            <div class="boardContentDiv">
-                                <div class="boardContentTextDiv">
-                                    <p class="testareaTextPTag">내용</p>
-                                </div>
-                                <div class="boardContentContentDiv">
-                                    <textarea name="" id="content" cols="100" rows="180"></textarea>
-                                </div>
+                        </div>
+                        <div class="boardTitleDiv">
+                            <div class="boardTitleTextDiv">
+                                <p class="inputTextPTag" >제목</p>
                             </div>
-                            
-                            <div class="boardButtonDiv">
-                                <button class="boardButton" type="submit">글 등록하기</button>
-                                <button class="boardButton">
-                                    <a th:href="@{/community?page=1&recordSize=10}">취소</a>
-                                </button>
+                            <div class="boardTitleContentDiv">
+                                <input id="title">
                             </div>
-                        </form>
+                        </div>
+                        <div class="boardContentDiv">
+                            <div class="boardContentTextDiv">
+                                <p class="testareaTextPTag">내용</p>
+                            </div>
+                            <div class="boardContentContentDiv">
+                                <textarea id="content" cols="100" rows="180"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="boardButtonDiv">
+                            <button class="boardButton" onclick="postCreate()">글 등록하기</button>
+                            <button class="boardButton">
+                                <a th:href="@{/community(page=0, recordSize=10)}">취소</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

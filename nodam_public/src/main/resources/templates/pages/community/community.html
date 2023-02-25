@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>노담지킴이 커뮤니티</title>
 
-    <link rel="stylesheet" th:href="@{/css/otherMenuLayoutCss/community.css}" >
+    <link rel="stylesheet" th:href="@{/css/layout/theOtherLayout.css}" >
     <link rel="stylesheet" th:href="@{/css/pages/community/community.css}" >
 
     <script th:src="@{/js/pages/community/community.js}"></script>
@@ -41,43 +41,44 @@
                         <div class="communitySearchDiv">
                             <span><input class="searchPostTitle" id="searchPostTitle" name="searchPostTitle" placeholder="제목"></span>
                             <span><input class="searchPostAuthor" id="searchPostAuthor" name="searchPostAuthor" placeholder="작성자"></span>
-                            <select id="findPostsSelectTag" name="findPostsSelectTag">
-                                <option>5</option>
+                            <select id="findPostsSelectTag" name="findPostsSelectTag" th:selected="${posts.getSize==10}">
                                 <option selected>10</option>
                                 <option>15</option>
                                 <option>20</option>
                             </select>
                             <button onclick="searchPost()">검색</button>
                         </div>
-                        <table class="communityTable" id="communityTable">
+                        <table class="communityTable" id="communityTable" >
                             <thead class="communityTableHeader">
-                            <tr class="communityTableHeaderTr">
-                                <th class="postNum">번호</th>
-                                <th class="postTitle">제목</th>
-                                <th class="postWriter">작성자</th>
-                                <th class="postCreadteDate">작성일</th>
-                                <th class="postViewCnt">조회수</th>
-                            </tr>
+                                <tr class="communityTableHeaderTr">
+                                    <th class="postNum" >번호</th>
+                                    <th class="postTitle" >제목</th>
+                                    <th class="postWriter" >작성자</th>
+                                    <th class="postCreadteDate" >작성일</th>
+                                    <th class="postViewCnt" >조회수</th>
+                                </tr>
                             </thead>
                             <tbody class="communityTableBody">
-                                <!-- <tr th:each="post : ${posts}">
-                                    <td class="postNumTD" th:text="${post.postNum}" ></td>
+
+                                <tr class="communityTableBodyTR" id="communityTableBodyTR" th:each="post : ${posts}" >
+                                    <td class="postNumTD" th:text="${post.id}" ></td>
                                     <td class="postTitleTD">
-                                        <a th:text="${post.postTitle}"
-                                                               th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
-                                    <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
-                                    <td class="createdDateTD" th:text="${post.createdDate}"></td>
+                                        <a th:text="${post.title}"
+                                                               th:href="@{/community/post/view(id = ${post.id})}" ></a></td>
+                                    <td class="postAuthorTD" th:text="${post.writer}"></td>
+                                    <td class="createdDateTD" th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                                     <td class="viewCntTD" th:text="${post.viewCnt}"></td>
-                                </tr> -->
+                                </tr>
+                                <tr class="communityTableBodyTR"  th:if="${trForNumber != 0}" th:each="num : ${#numbers.sequence(1,trForNumber)}" ></tr>
                             </tbody>
                         </table>
                         <div class="communityPageButton">
-                            <!-- <ul class="pagination justify-content-center" th:if="${!posts.isEmpty()}" >
-                                <li th:each="page: ${#numbers.sequence(1, posts.totalPages)}"
+                            <ul class="pagination justify-content-center" th:if="${!posts.isEmpty()}" >
+                                <li th:each="page: ${#numbers.sequence(0, posts.totalPages-1)}"
                                     th:if="${page >= posts.number -5 and page <= posts.number+5}"
                                     th:classappend="${page == posts.number} ? 'active'"
                                     class="page-item">
-                                    <a th:text="${page}" class="page-link" th:href="@{|?page=${page}&recordSize=${recordSize}|}"></a>
+                                    <a th:text="${page}" class="page-link" th:href="@{|?page=${page}&recordSize=${posts.getSize()}|}"></a>
                                 </li>
                                 <li class="page-item" th:if="${posts.number < posts.totalPages -1}"
                                     th:classappend="${!posts.hasNext} ? 'disabled'">
@@ -85,7 +86,7 @@
                                         <span>다음</span>
                                     </a>
                                 </li>
-                            </ul> -->
+                            </ul>
                         </div>
                     </div>
                 </div>

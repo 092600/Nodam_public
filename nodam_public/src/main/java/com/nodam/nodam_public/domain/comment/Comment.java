@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.nodam.nodam_public.domain.post.Post;
-import com.nodam.nodam_public.domain.time_entity.PostCommentTimeEntity;
+import com.nodam.nodam_public.domain.timeEntity.TimeEntity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,16 +18,13 @@ import javax.persistence.Embedded;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Comment{
+public class Comment extends TimeEntity {
 
     @Id @GeneratedValue
     @Column(name = "post_num")
     private Long id;
 
     private String content;
-
-    @Embedded
-    private PostCommentTimeEntity commentTimeInfo;
 
     
     @ManyToOne

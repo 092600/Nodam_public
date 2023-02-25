@@ -1,5 +1,6 @@
 package com.nodam.nodam_public.domain.user.info;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +26,9 @@ public class UserInfo {
     @Temporal(TemporalType.DATE)
     @Column(nullable = true)
     private Date birthday;
+    
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date noSmokingDate;
+
 }

@@ -28,7 +28,9 @@ public class NodamSecurityConfig extends WebSecurityConfigurerAdapter {
 
             .authorizeHttpRequests()
             .mvcMatchers("/community/post/write").authenticated()
-            .mvcMatchers("/api/v4/community/post").hasAnyRole("USER", "MANAGER", "ADMIN")
+            .mvcMatchers("/api/v4/community/post").authenticated()
+            // .mvcMatchers("/api/v4/nosmoking").authenticated()
+            // .mvcMatchers("/api/v4/noSmokingStop").authenticated()
             .anyRequest().permitAll();
         
         http

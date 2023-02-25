@@ -27,10 +27,6 @@ public class NodamAuthenticationManager implements AuthenticationManager {
 
         UserDetails user = userDetailsService.loadUserByUsername(email);
 
-        System.out.println("passwordEncodeClass = " +passwordEncoder.getClass());
-
-        System.out.println("password = "+password);
-        System.out.println("password = "+user.getPassword());
         if (passwordEncoder.matches(password, user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(email, password, user.getAuthorities());
         } else {

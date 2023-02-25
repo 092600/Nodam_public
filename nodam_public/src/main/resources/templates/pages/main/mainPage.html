@@ -61,15 +61,15 @@
                         </div>
                         <div class="infoButtonDiv">
                             <div>
-                                <input type="hidden" sec:authorize="isAuthenticated()" id="sessionUserEmail" th:value="${#authentication.name}">
+                                <input type="hidden" sec:authorize="isAuthenticated()" id="id" th:value="${#authentication.principal.user.id}">
                                 
-                                <a sec:authorize="isAuthenticated()" th.if="${#authentication.principal.user.userInfo.noSmokingDate == null}" onclick="noSmoking()" >금연하기</a>
+                                <a sec:authorize="isAuthenticated()" th:if="${#authentication.principal.user.userInfo.noSmokingDate == null}" onclick="noSmoking()" >금연하기</a>
                                 <a sec:authorize="isAuthenticated()" th:if="${#authentication.principal.user.userInfo.noSmokingDate != null}"  onclick="noSmokingStop()">금연 끝내기</a>
                                 <a sec:authorize="!isAuthenticated()"></a>
                             </div>
                             <div>
 
-                                <a sec:authorize="isAuthenticated()" th:href="@{/accounts/myinfo}">내 정보</a>
+                                <a sec:authorize="isAuthenticated()" th:href="@{/accounts/mypage}">내 정보</a>
                                 <a sec:authorize="!isAuthenticated()" ></a>
                             </div>
                         </div>
@@ -110,12 +110,12 @@
                                     <p>인기 게시판</p>
                                 </div>
                                 <div class="popularPostContentDiv">
-                                    <!-- <table>
+                                    <table>
                                         <tr th:each="post : ${viewCntTop6Posts}">
                                             <td class="postTitleTD" >
-                                                <a th:text="${post.postTitle}"
-                                                   th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
-                                            <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
+                                                <a th:text="${post.title}"
+                                                   th:href="@{/community/post/view(id = ${post.id})}" ></a></td>
+                                            <td class="postAuthorTD" th:text="${post.writer}"></td>
                                             <td class="postViewCntTD" th:text="${post.viewCnt}"></td>
                                         </tr>
                                         <tr th:each="num : ${#numbers.sequence(0, 6 - viewCntTop6Posts.size())}">
@@ -123,7 +123,7 @@
                                             <td class="postAuthorTD"></td>
                                             <td class="postViewCntTD"></td>
                                         </tr>
-                                    </table> -->
+                                    </table>
                                 </div>
                             </div>
                             <div class="latestPostDiv">
@@ -131,19 +131,19 @@
                                     <p>최신 게시판</p>
                                 </div>
                                 <div class="latestPostContentDiv">
-                                    <!-- <table>
+                                    <table>
                                         <tr th:each="post : ${createDateTop6Posts}">
                                             <td class="postTitleTD">
-                                                <a th:text="${post.postTitle}"
-                                                   th:href="@{/community/board/view(postNum = ${post.postNum})}" ></a></td>
-                                            <td class="postAuthorTD" th:text="${post.postAuthor}"></td>
+                                                <a th:text="${post.title}"
+                                                   th:href="@{/community/post/view(id = ${post.id})}" ></a></td>
+                                            <td class="postAuthorTD" th:text="${post.writer}"></td>
                                             <td class="postViewCntTD" th:text="${post.viewCnt}"></td>
                                         <tr th:each="num : ${#numbers.sequence(0, 6 - createDateTop6Posts.size())}">
                                             <td class="postTitleTD"></td>
                                             <td class="postAuthorTD"></td>
                                             <td class="postViewCntTD"></td>
                                         </tr>
-                                    </table> -->
+                                    </table>
                                 </div>
                             </div>
                         </div>

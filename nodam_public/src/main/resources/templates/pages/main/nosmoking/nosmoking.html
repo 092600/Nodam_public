@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>노담 서약서</title>
+
+    <link rel="stylesheet" th:href="@{/css/pages/main/nosmoking/noSmokingPopup.css}" >
+
+    <script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/pages/main/nosmoking/nosmoking.js}"></script>
+
+</head>
+
+<body>
+    <div class="mainDiv">
+        
+        <input type="hidden" 
+        sec:authorize="isAuthenticated()"
+        th:value="${#authentication.principal.user.id}" id="id" name="id">
+
+        <p class="mainTextPTag">금연하기</p>
+        <div class="noSmokingTextDiv">
+            <p>건강을 위해 금연하고 싶으신가요 ?</p>
+            <p>노담노담과 함께라면 금연 할 수 있습니다.</p>
+            <p>우리와 함께 도전해봐요</p>
+            <p>노담. 그렇게 어렵지 않습니다.</p>
+        </div>
+        <div class="noSmokingInfoDiv">
+            <p>2022년 9월 1일</p>
+            <span class="noSmokingInfoDivLeftSpan">금연자 : </span><span id="userNameSpan" name="userNameSpan" th:text="${#authentication.principal.user.name}"></span><span> (인)</span>
+        </div>
+        <div class="noSmokingButtonDiv">
+            <button type="submit" onclick="noSmoking()">지금부터 금연 시작하기</button>
+        </div>
+    </div>
+</body>
+</html>

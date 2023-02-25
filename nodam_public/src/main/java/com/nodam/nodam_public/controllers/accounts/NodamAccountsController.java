@@ -31,7 +31,7 @@ public class NodamAccountsController {
         return "pages/accounts/signup/signupPage";
     }
 
-    @GetMapping(value = "/myinfo")
+    @GetMapping(value = "/mypage")
     public String myinfo(){
         // SessionUser user = (SessionUser) httpSession.getAttribute("user");
         return "pages/accounts/mypage/myPage";

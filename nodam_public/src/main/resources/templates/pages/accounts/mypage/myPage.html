@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>노담지킴이 마이페이지</title>
 
-    <link rel="stylesheet" th:href="@{/css/otherMenuLayout.css}" >
+    <link rel="stylesheet" th:href="@{/css/layout/theOtherLayout.css}" >
     <link rel="stylesheet" th:href="@{/css/pages/accounts/mypage/mypage.css}" >
 
     <script th:src="@{/js/pages/main/mainPage.js}"></script>
@@ -36,12 +36,13 @@
                         </div>
                         <div class="infoDiv">
                             <div class="leftInfoDiv"><span>이름</span></div>
-                            <div class="rightInfoDiv"><span id="userName" th:text="${session.user.getName()}"></span></div>
+                            <div class="rightInfoDiv"><span id="userName" th:text="${#authentication.principal.user.name}"></span></div>
                         </div>
                         <div class="infoDiv">
                             <div class="leftInfoDiv"><span>이메일</span></div>
-                            <div class="rightInfoDiv"><span id="userEmail" th:text="${session.user.getEmail()}"></span></div>
+                            <div class="rightInfoDiv"><span id="userEmail" th:text="${#authentication.principal.user.email}"></span></div>
                         </div>
+                         
                         <div class="infoDiv">
                             <div class="leftInfoDiv"><span>비밀번호</span></div>
                             <div class="rightInfoDiv">
