@@ -12,10 +12,10 @@ function isEmail(asValue) {
 
 
 $(document).ready(function() {
-    // var userProfileImg = document.getElementById("userProfileImgInput");
     var userPasswordCertification = document.getElementById("userPasswordCertification");
     var password = document.getElementById("password");
     var password2 = document.getElementById("password2");
+
     $("#password").change(function (){
         var passwordValue = password.value;
         var passwordValueLength = passwordValue.length;
@@ -60,22 +60,93 @@ $(document).ready(function() {
 })
 
 function deleteUserProfileImg(){
-    $("#userProfileImgInput").val("");
-    document.getElementById('userProfileImg').src = "/images/user.JPG";
+    if (confirm("기본 프로필 사진을 사용하시겠습니까?"))  {
+        uploadable = false;
+
+        $("#userProfileImgInput").val("");
+        document.getElementById('userProfileImg').src = "/images/user.JPG";   
+        
+        var data = {
+            email : $("#userEmail").text(),
+        }
+        
+        $.ajax({
+            url:"/api/v4/accounts/user/profileImg",
+            type:"DELETE",
+            dataType : 'JSON',
+            contentType : "application/json",
+            data : JSON.stringify(data),
+            success:function(result){
+                alert("기본 프로필 사진으로 변경되었습니다.");
+                window.location.href = "/accounts/mypage";
+            },
+            error:function(err){
+                alert("다시 한번 시도해주세요.");
+                // window.location.href = "/";
+            }
+
+        });
+
+    }
+
 }
 
 function changeUserProfileImg(input){
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            document.getElementById('userProfileImg').src = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
+    if(!/\.(gif|jpg|jpeg|png)$/i.test(input.name)) {
+        if (input.files && input.files[0] && (input.files[0].size < 1024 * 1022)) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('userProfileImg').src = e.target.result;
+                uploadable = true;
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            alert("1MB 이하의 파일을 선택해주세요");
+            input.value = "";
+            document.getElementById('userProfileImg').src = "/images/user.JPG";
+        }
     } else {
-        document.getElementById('userProfileImg').src = "/images/user.JPG";
+        alert("gif, jpg, jpeg, png 파일을 선택해주세요");
     }
+    
 }
 
+var uploadable = false;
+
+function saveProfileImg() {
+    
+    if (uploadable) {
+        const profileImg = document.getElementById("userProfileImgInput").files[0];
+        const email = $("#userEmail").text();
+
+        const formData = new FormData();
+        formData.append("profileImg", profileImg);
+        formData.append("email", email);
+
+        $.ajax({
+            url:"/api/v4/accounts/user/profileImg",
+            type:"POST",
+            cache : false,
+            contentType: false,               // * 중요 *
+            processData: false,               // * 중요 *
+            enctype : 'multipart/form-data',  // * 중요 *
+            data : formData,
+            success:function(result){
+                if (result) {
+                    alert("프로필 사진이 변경되었습니다.");    
+                } else {
+                    alert("다시 한번 시도해주세요");
+                }
+            },
+            error:function(err){
+                console.error(err);
+            }
+    
+        });
+    } else {
+        alert("이미지를 업로드해주세요");
+    }
+}
 
 function certificationPassword(){
     var userData = {
@@ -83,7 +154,7 @@ function certificationPassword(){
         password : $("#userPasswordCertification").val(),
     }
     $.ajax({
-        url:"/api/v4/accounts/mypage/certificationPassword",
+        url:"/api/v4/accounts/mypage/user/certification",
         type:"POST",
         cache:false,
         async:false,
@@ -98,14 +169,6 @@ function certificationPassword(){
             } else {
                 alert("비밀번호가 일치하지 않습니다.");
             }
-            // if (result){
-            //     $("#emailUnderPTag").text("사용할 수 없는 이메일입니다.");
-            //     $("#emailUnderPTag").css("color", "red");
-            // } else {
-            //     $("#emailUnderPTag").text("사용할 수 있는 이메일입니다.");
-            //     $("#emailUnderPTag").css("color", "blue");
-            //     availableEmail = true;
-            // }
         },
         error:function(err){
             console.error(err);
@@ -119,8 +182,9 @@ function changingPassword(){
         email : $("#userEmail").text(),
         password : $("#password").val(),
     }
+    
     $.ajax({
-        url:"/api/v4/accounts/mypage/password",
+        url:"/api/v4/accounts/mypage/user/password",
         type:"PATCH",
         cache:false,
         async:false,
@@ -130,11 +194,11 @@ function changingPassword(){
         success:function(result){
             if (result){
                 alert("비밀번호가 변경되었습니다.");
-                window.location.href = "/accounts/myinfo";
+                window.location.href = "/accounts/mypage";
             } else {
                 alert("문제가 발생하였습니다.\n" +
                     "다시 시도해주세요.");
-                window.location.href = "/accounts/myinfo";
+                window.location.href = "/accounts/mypage";
             }
         },
         error:function(err){

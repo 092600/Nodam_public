@@ -72,7 +72,7 @@ $(document).ready(function(){
         if (isEmail(email)){
             $("#emailUnderPTag").text("");
             $.ajax({
-                url:"/api/v4/accounts/signup/checkEmail",
+                url:"/api/v4/accounts/checkEmail?email="+email,
                 type:"GET",
                 cache:false,
                 async:false,

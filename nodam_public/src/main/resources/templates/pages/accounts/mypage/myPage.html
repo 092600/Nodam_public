@@ -29,9 +29,10 @@
                         <div class="infoDiv">
                             <div class="leftInfoDiv profileImgDiv"><span>프로필사진</span></div>
                             <div class="rightInfoDiv profileImgDiv">
-                                <img class="userProfileImg" id="userProfileImg" th:src="@{/images/user.JPG}">
-                                <p><input id="userProfileImgInput" type="file" onchange="changeUserProfileImg(this)"></p>
-                                <p><button onclick="deleteUserProfileImg()">이미지 삭제</button></p>
+                                <img class="userProfileImg" id="userProfileImg" th:src="@{${#authentication.principal.user.profileImage}}">
+                                <input type="hidden" th:value="${#authentication.principal.user.email}" name="email"/>
+                                <p><input id="userProfileImgInput" type="file" name="userProfileImgInput" onchange="changeUserProfileImg(this)"></p>
+                                <p><button type="button" onclick="saveProfileImg()">이미지 저장</button><button id="deleteImgButton" type="button" onclick="deleteUserProfileImg()">이미지 삭제</button></p>
                             </div>
                         </div>
                         <div class="infoDiv">

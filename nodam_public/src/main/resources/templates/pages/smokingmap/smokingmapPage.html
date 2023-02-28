@@ -10,7 +10,17 @@
     <link rel="stylesheet" th:href="@{/css/pages/smokingmap/smokingmap.css}" >
 
     <script th:src="@{/js/pages/smokingmap/smokingmap.js}"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
+     <link rel="stylesheet" th:href="@{/css/pages/mapHtml/map.css}" >
     <!-- <script th:src="@{/js/mainPages/index.js}"></script> -->
+
 </head>
 
 <body>
@@ -28,11 +38,10 @@
                             <div class="selectorDiv">
                                 <select class="godwjdrn" style="height: 40px;">
                                     <optgroup label="서울시히트맵">
-                                        <option value="흡연구역히트맵" selected>히트맵</option>
+                                        <option value="히트맵" selected>히트맵</option>
                                     </optgroup>
                                     <optgroup label="흡연구역">
                                         <option value="서울시">서울시</option>
-                                        <option value="강남구">강남구</option>
                                         <option value="강북구">강북구</option>
                                         <option value="강서구">강서구</option>
                                         <option value="관악구">관악구</option>
@@ -54,7 +63,7 @@
                                         <option value="중랑구">중랑구</option>
                                     </optgroup>
                                     <optgroup label="금연구역">
-                                        <option value="서울시금연구역">서울시 금연구역</option>
+                                        <option value="금연구역히트맵">서울시 금연구역</option>
                                     </optgroup>
                                 </select>
                             </div>

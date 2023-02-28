@@ -2,7 +2,6 @@ package com.nodam.nodam_public.domain.post;
 
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 
 import com.nodam.nodam_public.domain.post.search.SearchPostDto;
@@ -23,6 +23,11 @@ import lombok.RequiredArgsConstructor;
 public class PostService {
 
     private final PostRepository postRepository;
+
+    public Optional<Post> findByPostId(Long id) {
+        return postRepository.findById(id);
+    
+    }
 
     @Transactional
     public Long postCreate(Post post){
@@ -87,7 +92,7 @@ public class PostService {
     }
 
     public List<Post> find6PostsOrderByCreatedDate(){
-        return postRepository.findTop6ByOrderByCreatedDate();
+        return postRepository.findTop6ByOrderByCreatedDateDesc();
     }
 
 }

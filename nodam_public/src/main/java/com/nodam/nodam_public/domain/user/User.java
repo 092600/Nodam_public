@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.nodam.nodam_public.domain.comment.Comment;
 import com.nodam.nodam_public.domain.post.Post;
 import com.nodam.nodam_public.domain.timeEntity.UserTimeEntity;
+import com.nodam.nodam_public.domain.user.certificate.UserCertificationInfo;
 import com.nodam.nodam_public.domain.user.info.UserInfo;
 import com.nodam.nodam_public.domain.user.role.UserRole;
 
@@ -14,13 +16,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 
+
+
 @Setter
 @Getter
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
 public class User extends UserTimeEntity {
-
+    
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
@@ -38,9 +42,13 @@ public class User extends UserTimeEntity {
     private String password;
 
     @Column
-    private String profileImage;
+    private String profileImage = "/userProfileImgPath/profile/default/defaultProfile.JPG";
 
 
+
+    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @JoinColumn(name = "certification_id")
+    private UserCertificationInfo certificationInfo;
 
 
     @Embedded
@@ -50,4 +58,7 @@ public class User extends UserTimeEntity {
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<Post>();
 
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments = new ArrayList<Comment>();
 }

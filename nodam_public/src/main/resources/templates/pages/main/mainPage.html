@@ -53,7 +53,7 @@
                         <div class="userIconNInfo">
                             <img class="userImgNL" sec:authorize="!isAuthenticated()" th:src="@{/images/right_img_04.JPG}">
                             <div class="userImgDiv" >
-                                <img class="userImgL" sec:authorize="isAuthenticated()" th:src="@{/images/user.JPG}">
+                                <img class="userImgL" sec:authorize="isAuthenticated()" th:src="@{${#authentication.principal.user.profileImage}}">
                             </div>
                             <div class="userNameDiv">
                                 <span><a sec:authorize="isAuthenticated()" sec:authentication="name"></a></span>

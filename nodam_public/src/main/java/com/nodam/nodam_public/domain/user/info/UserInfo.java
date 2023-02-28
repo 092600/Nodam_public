@@ -1,6 +1,5 @@
 package com.nodam.nodam_public.domain.user.info;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;

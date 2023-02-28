@@ -1,13 +1,13 @@
 /* -------------------map.html------------------------------- */
 /* .select_div{ height:35px;} */
-@font-face {font-family: 'SCD1'; src:url('../font/SCDream1.otf') format('truetype'); }
+/* @font-face {font-family: 'SCD1'; src:url('../font/SCDream1.otf') format('truetype'); }
 @font-face {font-family: 'SCD2'; src:url('../font/SCDream2.otf') format('truetype'); }
 @font-face {font-family: 'SCD3'; src:url('../font/SCDream3.otf') format('truetype'); }
 @font-face {font-family: 'SCD4'; src:url('../font/SCDream4.otf') format('truetype'); }
 @font-face {font-family: 'SCD5'; src:url('../font/SCDream5.otf') format('truetype'); }
 @font-face {font-family: 'SCD6'; src:url('../font/SCDream6.otf') format('truetype'); }
 @font-face {font-family: 'SCD7'; src:url('../font/SCDream7.otf') format('truetype'); }
-@font-face {font-family: 'SCD8'; src:url('../font/SCDream8.otf') format('truetype'); }
+@font-face {font-family: 'SCD8'; src:url('../font/SCDream8.otf') format('truetype'); } */
 
 .but{ width : 35px; height : 35px; }
 

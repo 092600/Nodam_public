@@ -1,6 +1,65 @@
 var uri = window.location.search;
 const id = new URLSearchParams(uri).get("id");
 
+
+function commentCreate(){
+    var data = {
+        writer : $("#CommentCreatorId").text(),
+        content : $("#comment").val(),
+        post : {
+            id : $("#postNum").val(),
+        }
+    }
+
+    $.ajax({
+        type : 'POST',
+        url : '/api/v4/community/post/comment',
+        dataType : 'json',
+        contentType : 'application/json; charset=utf-8',
+        data : JSON.stringify(data),
+        success:function(result){
+            if (result) {
+                alert("댓글이 등록되었습니다.");
+                window.location.href = "/community/post/view?id="+data.post.id;
+            } else {
+                alert("다시 시도해주세요");
+            }
+        },
+        error:function(err){
+            alert("다시 한번 시도해주세요.");
+        }
+    })
+}
+
+function commentDelete(commentId, postId, email) {
+    var data = {
+        id : commentId,
+        writer : email,
+        post : {
+            id : $("#postNum").val(),
+        }
+    }
+    $.ajax({
+        type : 'DELETE',
+        url : '/api/v4/community/post/comment',
+        dataType : 'json',
+        contentType : 'application/json; charset=utf-8',
+        data : JSON.stringify(data),
+        success:function(result){
+            if (result) {
+                alert("댓글이 삭제되었습니다.");
+                window.location.href = "/community/post/view?id="+postId;
+            } else {
+                alert("다시 시도해주세요");
+            }
+        },
+        error:function(err){
+            alert("다시 한번 시도해주세요.");
+        }
+    })
+}
+
+
 function postCreate(){
     var data = {
         writer : $("#writer").val(),
@@ -68,3 +127,15 @@ function postUpdate(){
         // alert("글 등록에 실패했습니다r.");
     });
 }
+
+
+$(document).ready(function() {
+
+    const commentsCnt = $(".commentsEachDiv").length;
+    if (commentsCnt != 0) {
+        const postCommentsDivHeight = (commentsCnt * (180) + 140 + 80);
+
+        $(".postCommentsDiv").css("height", postCommentsDivHeight);
+    }
+    
+})

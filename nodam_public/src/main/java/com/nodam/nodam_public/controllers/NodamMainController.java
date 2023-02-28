@@ -1,11 +1,9 @@
 package com.nodam.nodam_public.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -27,18 +25,13 @@ import lombok.RequiredArgsConstructor;
 import com.nodam.nodam_public.domain.post.Post;
 import com.nodam.nodam_public.domain.post.PostService;
 import com.nodam.nodam_public.domain.post.search.SearchPostDto;
-import com.nodam.nodam_public.domain.user.User;
-import com.nodam.nodam_public.domain.user.UserService;
 
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @Controller
 @RequiredArgsConstructor
 public class NodamMainController {
 
-    private final UserService userService;
     private final PostService postService;
     private final ClinicService clinicService;
     private final NoSmokeTryPeopleService noSmokeTryPeopleService;
@@ -106,8 +99,8 @@ public class NodamMainController {
 
     @GetMapping(value = "/community/post/view")
     public String goPostViewPage(Model model, @RequestParam(name = "id") Long postNum){
-
         Optional<Post> findPost = postService.getPostById(postNum);
+        
         if (findPost.isPresent()) {
             postService.viewPost(findPost.get());
 

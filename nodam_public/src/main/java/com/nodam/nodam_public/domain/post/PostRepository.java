@@ -34,7 +34,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     public void viewPost(@Param("viewCnt") Long viewCnt, @Param("id") Long id);
 
     List<Post> findTop6ByOrderByViewCntDesc();
-    List<Post> findTop6ByOrderByCreatedDate();
+    List<Post> findTop6ByOrderByCreatedDateDesc();
 
 
 }

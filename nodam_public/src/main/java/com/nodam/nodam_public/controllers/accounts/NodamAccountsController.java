@@ -3,14 +3,11 @@ package com.nodam.nodam_public.controllers.accounts;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping(value = "/accounts")
@@ -33,7 +30,6 @@ public class NodamAccountsController {
 
     @GetMapping(value = "/mypage")
     public String myinfo(){
-        // SessionUser user = (SessionUser) httpSession.getAttribute("user");
         return "pages/accounts/mypage/myPage";
     }
 

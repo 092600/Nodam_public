@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
-import com.nodam.nodam_public.domain.user.role.UserRole;
 
 @Configuration
 @EnableWebSecurity
@@ -25,12 +24,15 @@ public class NodamSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
-
+            
             .authorizeHttpRequests()
             .mvcMatchers("/community/post/write").authenticated()
+
             .mvcMatchers("/api/v4/community/post").authenticated()
-            // .mvcMatchers("/api/v4/nosmoking").authenticated()
-            // .mvcMatchers("/api/v4/noSmokingStop").authenticated()
+            .mvcMatchers("/api/v4/community/post/comment").authenticated()
+            
+            .mvcMatchers("/api/v4/accounts/user/**").authenticated()
+            .mvcMatchers("/api/v4/accounts/find/**").permitAll()
             .anyRequest().permitAll();
         
         http
@@ -55,6 +57,5 @@ public class NodamSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                 .antMatchers("/favicon.ico", "/resources/**", "/error", "/resources/templates/**");
     }
-
 
 }

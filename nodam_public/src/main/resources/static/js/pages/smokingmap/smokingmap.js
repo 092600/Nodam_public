@@ -1,15 +1,17 @@
 $(document).ready(function(){
-    document.getElementById('smokingmapDiv1').innerHTML='<object width="100%" height="100%" type="text/html" data="/mapHtml/히트맵.html"></object>';
+    document.getElementById('smokingmapDiv1').innerHTML='<object width="100%" height="100%" type="text/html" data="../mapHtml/히트맵.html"></object>';
 
+
+    $("#smokingmapDiv1").load("/js/pages/mapHtml/히트맵.html");
     // document.getElementById('dashboardTitle').textContent = '히 트 맵'
     // document.getElementById('mapInfoDiv').innerText='서울시의 흡연구역은 중랑구, 광진구, 은평구가 가장 많습니다.'
 
 
     $('.godwjdrn').change(function(){
-        var value_name = $('option:selected', this).text();
-
+        var value_name = $('option:selected', this).val();
         document.getElementById('smokingmapDiv1').textContent = '';
-        document.getElementById('smokingmapDiv1').innerHTML='<object width="100%" height="100%" type="text/html" data="/mapHtml/'+value_name+'.html"></object>';
+
+        $("#smokingmapDiv1").load("/js/pages/mapHtml/"+value_name+".html");
         if (value_name == '서울시'){
             document.getElementById('smokingmapTitle').textContent = '흡연구역 지도';
             document.getElementById('mapInfoDiv').innerText='총 322개'
@@ -42,6 +44,7 @@ $(document).ready(function(){
             dict_gu['은평구'] = '65';
             dict_gu['중구'] = '5';
             dict_gu['중랑구'] = '56';
+            dict_gu["금연구역히트맵"] = '5292';
 
             document.getElementById('smokingmapTitle').textContent = '흡연구역 지도';
             document.getElementById('mapInfoDiv').innerText = '총 '+dict_gu[value_name]+'개';

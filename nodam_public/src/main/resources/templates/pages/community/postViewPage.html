@@ -84,6 +84,78 @@
                 <div class="contentRightDiv"></div>
             </div>
         </div>
+        <div class="postCommentsDiv">
+            <div class="postLeftCommentsDiv"></div>
+
+            <div class="postCenterCommentsDiv">
+                <div class="commentsHeaderDiv">
+                    <p class="commentsHeaderPTag">
+                        댓글
+                    </p>
+                </div>
+                <div class="commentsOutterDiv">
+                    <div class="commentsInnerDiv">
+                        <div th:if="${#lists.isEmpty(post.getComments())}" class="commentsEmptyDiv">
+                            <p>아직 댓글이 달리지 않았어요 ..</p>
+                        </div>
+                        
+                        <div th:if="${!#lists.isEmpty(post.getComments())}"
+                                                                                    class="commentsForEachDiv" >
+                            <div th:each="comment : ${post.getComments}" class="commentsEachDiv">  
+                                <div class="commentsUserInfoDiv">
+                                    <p>
+                                        <span><img class="userProfileImg" th:src="@{${comment.getUser().getProfileImage()}}"></span>
+                                        <span class="userEmailSpanInComment" th:text="${comment.getWriter()}"></span>
+                                    </p>
+                                </div>
+                                <div class="commentsContentDiv">
+                                    <div class="commentsContentTextDiv">
+                                        <textarea th:text="${comment.getContent()}" readonly></textarea>    
+                                    </div>
+                                    <div class="commentsContentButtonDiv">
+                                        <button class="commentDeleteButton" sec:authorize="isAuthenticated()" th:if="${comment.getWriter() == #authentication.principal.user.email}"
+                                        th:commentId="${comment.id}" th:postId="${post.id}" th:writer="${comment.getWriter()}"
+                                        onclick="commentDelete(this.getAttribute('commentId'), this.getAttribute('postId'), this.getAttribute('writer'))" type="button">삭제</button>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                        
+                    </div>
+
+            
+                </div>
+            </div>
+
+            <div class="postRightCommentsDiv"></div>
+        </div>
+
+        <div class="commentCreateOutterDiv" sec:authorize="isAuthenticated()">
+            <div class="commentCreateHeaderDiv">
+                <p>댓글 작성하기</p>
+            </div>
+            <div class="commentCreateDiv">
+                <input type="hidden" id="postNum" th:value="${post.getId()}" >    
+                <div class="commentCreateUserInfoDiv">
+                    <p>
+                        <span><img class="userProfileImg" sec:authorize="isAuthenticated()" th:src="@{${#authentication.principal.user.profileImage}}"></span>
+                        <span class="userEmailSpanInComment" id="CommentCreatorId" th:text="${#authentication.principal.user.email}"></span>
+                    </p>
+                </div>
+                <div class="commentCreateContentDiv">
+                    <div class="commentCreateTextDiv">
+                        <textarea placeholder="댓글을 남겨보세요" id="comment"></textarea>
+                    </div>
+                    <div class="commentCreateButtonDiv">
+                        <p>
+                            <button class="commentCreateButton" 
+                                    onclick="commentCreate()" type="button">등록</button>
+                        </p>
+                    </div>
+                </div> 
+            </div>
+        </div>
     </div>
 
 

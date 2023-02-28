@@ -5,7 +5,7 @@ function noSmoking(){
 
     $.ajax({
         type : 'POST',
-        url : '/api/v4/nosmoking',
+        url : '/api/v4/accounts/user/noSmoking',
         dataType : 'JSON',
         contentType : "application/json",
         data : JSON.stringify(data),

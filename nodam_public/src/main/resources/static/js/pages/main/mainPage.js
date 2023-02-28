@@ -68,8 +68,8 @@ function noSmokingStop(){
             id : $("#id").val()
         }
         $.ajax({
-            type : 'POST',
-            url : '/api/v4/noSmokingStop',
+            type : 'DELETE',
+            url : '/api/v4/accounts/user/noSmoking',
             dataType : 'JSON',
             contentType : "application/json",
             data : JSON.stringify(data),
