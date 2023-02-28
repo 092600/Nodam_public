@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 import com.nodam.nodam_public.domain.comment.Comment;
 import com.nodam.nodam_public.domain.post.Post;
-import com.nodam.nodam_public.domain.timeEntity.UserTimeEntity;
+import com.nodam.nodam_public.domain.timeEntity.CreatedTimeEntity;
 import com.nodam.nodam_public.domain.user.certificate.UserCertificationInfo;
 import com.nodam.nodam_public.domain.user.info.UserInfo;
 import com.nodam.nodam_public.domain.user.role.UserRole;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-public class User extends UserTimeEntity {
+public class User extends CreatedTimeEntity {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -46,7 +46,7 @@ public class User extends UserTimeEntity {
 
 
 
-    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "certification_id")
     private UserCertificationInfo certificationInfo;
 
@@ -55,10 +55,10 @@ public class User extends UserTimeEntity {
     private UserInfo userInfo;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Post> posts = new ArrayList<Post>();
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<Comment>();
 }

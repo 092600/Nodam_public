@@ -1,35 +1,38 @@
 package com.nodam.nodam_public.domain.post;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+
+
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-
-import com.nodam.nodam_public.domain.comment.Comment;
-import com.nodam.nodam_public.domain.timeEntity.TimeEntity;
+// domain
 import com.nodam.nodam_public.domain.user.User;
+import com.nodam.nodam_public.domain.comment.Comment;
+import com.nodam.nodam_public.domain.timeEntity.CreatedModifiedTimeEntity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+// util
+import java.util.List;
+import java.util.ArrayList;
 
 
 @Setter
 @Getter
 @Entity
 @NoArgsConstructor
-public class Post extends TimeEntity{
+public class Post extends CreatedModifiedTimeEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_num")
@@ -52,7 +55,7 @@ public class Post extends TimeEntity{
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     private List<Comment> comments = new ArrayList<Comment>();
 
 

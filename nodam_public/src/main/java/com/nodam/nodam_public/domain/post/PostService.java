@@ -1,19 +1,22 @@
 package com.nodam.nodam_public.domain.post;
 
 
-import java.time.LocalDateTime;
+
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDateTime;
 
+// 
+import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
+// Pageable
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.access.method.P;
-import org.springframework.stereotype.Service;
 
+// DTO 
 import com.nodam.nodam_public.domain.post.search.SearchPostDto;
 
 import lombok.RequiredArgsConstructor;
@@ -29,6 +32,7 @@ public class PostService {
     
     }
 
+    // create post
     @Transactional
     public Long postCreate(Post post){
         Long postNum = postRepository.save(post).getId();
@@ -36,6 +40,7 @@ public class PostService {
         return postNum;
     }
 
+    // community get Page<post> obj
     public Page<Post> getPostPages(SearchPostDto searchPostDto){
 
         Pageable pageable = PageRequest.of(searchPostDto.getPage(),
@@ -45,26 +50,26 @@ public class PostService {
         return postRepository.findAll(pageable);
     }
 
-    public Optional<Post> getPostById(Long postNum) {
-    return postRepository.findById(postNum);
-    }
 
-    public void deletePostById(Long postNum) {
-    postRepository.deleteById(postNum);
-    }
-
+    // update post
     @Transactional
     public void updatePost(Post post) {
-    postRepository.postUpdate(post.getTitle(), post.getContent(), LocalDateTime.now(), post.getId());
+        postRepository.postUpdate(post.getTitle(), post.getContent(), LocalDateTime.now(), post.getId());
     }
 
+    // delete post
+    public void deletePostById(Long postNum) {
+        postRepository.deleteById(postNum);
+    }
 
+    // viewCnt +=1 
     @Transactional
     public void viewPost(Post post) {
         postRepository.viewPost(post.getViewCnt()+1, post.getId());
 
     }
 
+    //search Post
     public Page<Post> searchPosts(SearchPostDto searchDto, Pageable pageable){
         
         Page<Post> postList; 
@@ -87,6 +92,7 @@ public class PostService {
     }
 
 
+    // mainPage 
     public List<Post> find6PostsOrderByViewCnt(){
         return postRepository.findTop6ByOrderByViewCntDesc();
     }

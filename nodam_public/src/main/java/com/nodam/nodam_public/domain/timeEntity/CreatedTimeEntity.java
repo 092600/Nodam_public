@@ -12,7 +12,7 @@ import lombok.Getter;
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class UserTimeEntity {
+public class CreatedTimeEntity {
 
     @CreatedDate
     private LocalDateTime createdDate;

@@ -28,6 +28,8 @@ public class NodamCommunityRestController {
     private final PostService postService;
     private final CommentService commentService;
 
+
+    // 글 등록
     @PostMapping(value = "/post")
     public Boolean postCreate(@RequestBody Post post){
         try {
@@ -41,34 +43,12 @@ public class NodamCommunityRestController {
         }
     }
 
-    @DeleteMapping(value = "/post")
-    public boolean postDelete(@RequestParam("id") Long postNum, Authentication auth){
-        try {
-            Optional<Post> findPost = postService.getPostById(postNum);
 
-            if (findPost.isPresent()) {
-                Post post = findPost.get();
-                if (post.getWriter().equals(auth.getName())) {
-                    postService.deletePostById(post.getId());
-                    
-                    return true;
-                }
-            } 
-
-            return false;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            
-            return false;
-        }
-    }
-
-
+    // post 업데이트
     @PatchMapping(value = "/post")
     public boolean postUpdate(@RequestBody Post updatePost, Authentication auth){
         try {
-            Optional<Post> findPost = postService.getPostById(updatePost.getId());
+            Optional<Post> findPost = postService.findByPostId(updatePost.getId());
 
             if (findPost.isPresent()) {
                 Post post = findPost.get();
@@ -90,17 +70,41 @@ public class NodamCommunityRestController {
         }
     }
 
+
+    // 글 삭제
+    @DeleteMapping(value = "/post")
+    public boolean postDelete(@RequestParam("id") Long postNum, Authentication auth){
+        try {
+            Optional<Post> findPost = postService.findByPostId(postNum);
+
+            if (findPost.isPresent()) {
+                Post post = findPost.get();
+                if (post.getWriter().equals(auth.getName())) {
+                    postService.deletePostById(post.getId());
+                    
+                    return true;
+                }
+            } 
+
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            
+            return false;
+        }
+    }
+
+    // 댓글 등록
     @PostMapping(value = "/post/comment")
     public boolean createComment(@RequestBody Comment comment) {
+
         return commentService.save(comment);
     }
 
+    // 댓글 삭제
     @DeleteMapping(value = "/post/comment")
     public boolean deleteComment(@RequestBody Comment comment) {
-        System.out.println(comment.getWriter());
-        System.out.println(comment.getId());
-        System.out.println(comment.getPost().getId());
-
         
         return commentService.deleteById(comment);
     }

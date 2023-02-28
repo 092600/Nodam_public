@@ -25,10 +25,11 @@ public class NodamRestController {
     
     private final ClinicService clinicService;
 
+
+    // 클리닉 데이터 받아오기
     @GetMapping(value = "/clinic")
     public List<Clinic> getClinicData(@RequestParam(name = "region") String region,
                                  Model model){
-        // System.out.println(region);
         List<Clinic> Clinics = clinicService.findByClinicRegion(region);
         return Clinics;
     }

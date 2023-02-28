@@ -1,12 +1,13 @@
 package com.nodam.nodam_public.domain.comment;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.nodam.nodam_public.domain.post.Post;
-import com.nodam.nodam_public.domain.timeEntity.TimeEntity;
+import com.nodam.nodam_public.domain.timeEntity.CreatedTimeEntity;
 import com.nodam.nodam_public.domain.user.User;
 
 import lombok.Getter;
@@ -17,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Comment extends TimeEntity {
+public class Comment extends CreatedTimeEntity {
 
     @Id @GeneratedValue
     private Long id;
@@ -25,9 +26,9 @@ public class Comment extends TimeEntity {
     private String writer;
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 }

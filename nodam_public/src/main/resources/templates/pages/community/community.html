@@ -39,8 +39,14 @@
                     </div>
                     <div class="commnuityDiv2" id="commnuityDiv2">
                         <div class="communitySearchDiv">
-                            <span><input class="searchPostTitle" id="searchPostTitle" name="searchPostTitle" placeholder="제목"></span>
-                            <span><input class="searchPostAuthor" id="searchPostAuthor" name="searchPostAuthor" placeholder="작성자"></span>
+                            <span><input class="searchPostTitle" id="searchPostTitle" name="searchPostTitle" placeholder="제목"
+                                th:if="${title == null}"></span>
+                            <span><input class="searchPostAuthor" id="searchPostAuthor" name="searchPostAuthor" placeholder="작성자"
+                                th:if="${writer == null}" ></span>
+                            <span><input class="searchPostTitle" id="searchPostTitle" name="searchPostTitle" placeholder="제목"
+                                th:if="${title != null}" th:value="${title}"></span>
+                            <span><input class="searchPostAuthor" id="searchPostAuthor" name="searchPostAuthor" placeholder="작성자"
+                                th:if="${writer != null}" th:value="${writer}"></span>
                             <select id="findPostsSelectTag" name="findPostsSelectTag" th:selected="${posts.getSize==10}">
                                 <option selected>10</option>
                                 <option>15</option>

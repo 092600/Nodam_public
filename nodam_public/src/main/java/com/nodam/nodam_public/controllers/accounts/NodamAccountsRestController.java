@@ -49,6 +49,7 @@ public class NodamAccountsRestController {
     }
 
 
+    // mypage 비밀번호 확인
     @PostMapping(value = "/mypage/user/certification")
     public boolean certificateUser(@RequestBody User tmp, Authentication auth) {
         if (auth.getName().equals(tmp.getEmail())) {
@@ -58,6 +59,7 @@ public class NodamAccountsRestController {
         return false;
     }
 
+    // mypage 비밀번호 변경
     @PatchMapping(value = "/mypage/user/password")
     public boolean changePassword(@RequestBody User tmp, Authentication auth) {
         if (auth.getName().equals(tmp.getEmail())) {
@@ -68,12 +70,12 @@ public class NodamAccountsRestController {
     }
     
 
+    // 비밀번호 찾기
     @GetMapping(value = "/find/password")
     public boolean findUserPassword(@RequestParam("email") String email){
         try {
-            System.out.println(email);
             Optional<User> user = userService.findByEmail(email);
-            // System.out.println(user.get().getEmail());
+        
             if (user.isPresent()){
                 userService.createCertificateNumber(user.get());
                 
@@ -88,6 +90,8 @@ public class NodamAccountsRestController {
         }
     }
 
+
+    // 임시 비밀번호 가입 이메일로 보냄
     @PatchMapping(value = "/find/password")
     public boolean createTempPassword(@RequestBody User tmp) {
         try {
@@ -106,6 +110,7 @@ public class NodamAccountsRestController {
         }
     }
 
+    // 유저 프로필 이미지 변경
     @PostMapping(value = "/user/profileImg")
     public boolean uploadUserProfileImg(@RequestParam("profileImg") MultipartFile profileImg, 
                                     @RequestParam("email") String email, HttpSession session) {
@@ -138,6 +143,8 @@ public class NodamAccountsRestController {
         }
     }
 
+
+    // 유저 프로필 이미지 삭제 > 기본 이미지로
     @DeleteMapping(value = "/user/profileImg")
     public boolean uploadUserProfileImg(@RequestBody User tmp, HttpSession session) {
         try {
@@ -167,6 +174,7 @@ public class NodamAccountsRestController {
         }
     }
 
+    // 금연 
     @PostMapping(value = "/user/noSmoking")
     public Date nosmoking(@RequestBody User tmp, HttpSession session){
         Optional<User> user = userService.findByUserId(tmp.getId());
@@ -189,6 +197,7 @@ public class NodamAccountsRestController {
         }
     }
 
+    // 흡연
     @DeleteMapping(value = "/user/noSmoking")
     public String noSmokingStop(@RequestBody User tmp, HttpSession session) {
         Optional<User> OptionalUser = userService.findByUserId(tmp.getId());

@@ -20,4 +20,9 @@ public class SearchPostDto {
         this.writer = writer;
     }
 
+    public void defaultSetUp() {
+        this.page = 0;
+        this.recordSize = 10;
+        this.pageSize = 10;
+    }
 }

@@ -38,6 +38,7 @@ public class NodamMainController {
 
 
 
+    // 메인페이지로 
     @GetMapping(value = "/")
     public String goMainPage(Model model) {
 
@@ -55,6 +56,8 @@ public class NodamMainController {
 
         return "pages/main/mainPage";
     }
+
+
 
     @GetMapping(value = "/dashboard/{num}")
     public String goDashboardPage(@PathVariable String num){
@@ -99,7 +102,7 @@ public class NodamMainController {
 
     @GetMapping(value = "/community/post/view")
     public String goPostViewPage(Model model, @RequestParam(name = "id") Long postNum){
-        Optional<Post> findPost = postService.getPostById(postNum);
+        Optional<Post> findPost = postService.findByPostId(postNum);
         
         if (findPost.isPresent()) {
             postService.viewPost(findPost.get());
@@ -107,23 +110,24 @@ public class NodamMainController {
             model.addAttribute("post",  findPost.get());
 
             return "pages/community/postViewPage";
-        }
+        } else {
 
-        return "/pages/community/community";
+            return "redirect:/community?page=0&recordSize=10";
+        }
     }
 
 
     @GetMapping(value = "/community/post/update")
     public String goPostUpdatePage(Model model, @RequestParam(name = "id") Long postNum){
 
-        Optional<Post> findPost = postService.getPostById(postNum);
+        Optional<Post> findPost = postService.findByPostId(postNum);
         if (findPost.isPresent()) {
             model.addAttribute("post",  findPost.get());
 
             return "pages/community/postUpdatePage";
         }
 
-        return "/pages/community/community";
+        return "redirect:/community?page=0&recordSize=10";
     }
 
     @GetMapping(value = "/community/post/search")
@@ -137,6 +141,8 @@ public class NodamMainController {
         
         model.addAttribute("posts", searchPostPage);
         model.addAttribute("trForNumber", recordSize - searchPostPage.getNumberOfElements());
+        model.addAttribute("title", title);
+        model.addAttribute("writer", writer);
 
         return "/pages/community/community";
     }
