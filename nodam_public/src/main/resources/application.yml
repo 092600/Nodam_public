@@ -1,3 +1,5 @@
+userProfileImgPath: file:///Users/sim/nodamFiles/user/
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,7 +14,7 @@ spring:
     generate-ddl: true
 
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
     properties:
       hibernate:
@@ -33,3 +35,16 @@ spring:
 
     livereload:
       enabled: true
+
+  mail:
+    host: smtp.naver.com
+    port: 465
+    username: tyiju@naver.com
+    password: qudtlstoRlzjt1!
+    properties:
+      mail:
+        smtp:
+          auth : true
+          ssl.enable : true
+          ssl.trust : smtp.naver.com
+          starttls.enable : true

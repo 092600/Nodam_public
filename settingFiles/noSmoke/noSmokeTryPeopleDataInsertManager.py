@@ -1,14 +1,17 @@
 from bs4 import BeautifulSoup
-import requests
-import json
+import requests, json, sys, os
 
 import pymysql
 import datetime
 
-conn = pymysql.connect(host='localhost',
-                             user='MySQL_username',
-                             password='MySQL_password!',
-                             database='DB')
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
+from config import DB_Config as db_config
+conn = pymysql.connect(host=db_config.host,
+                             user=db_config.user,
+                             password=db_config.password,
+                             database=db_config.database)
+
 
 cursor = conn.cursor()
 select_sql = "SELECT count(*) FROM no_smoke_try_people"

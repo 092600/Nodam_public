@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.CascadeType;
@@ -53,6 +54,7 @@ public class Post extends CreatedModifiedTimeEntity{
 
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
